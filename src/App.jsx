@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.scss';
+import './index.css';
 
 // Main application component
 function App() {
