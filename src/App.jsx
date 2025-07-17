@@ -29,23 +29,18 @@ function App() {
         </defs>
       </svg>
       {/* Blob container */}
-      <div className="fixed inset-0 -z-50 overflow-hidde bg-black">
-        <div className="relative w-full h-full filter-[url(#blurMe)] blur-3xl">
-          <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(255,0,128,0.5)_0%,_rgba(255,0,128,0)_60%)] w-[400px] h-[400px] top-[20%] left-[30%] animate-blob rounded-full opacity-70"></div>
-          <div
-            className="absolute bg-[radial-gradient(circle_at_center,_rgba(0,255,255,0.4)_0%,_rgba(0,255,255,0)_60%)] w-[300px] h-[300px] top-[60%] left-[20%] animate-blob rounded-full opacity-70"
-            style={{ animationDelay: '5s' }}
-          ></div>
-
-          <div
-            className="absolute bg-[radial-gradient(circle_at_center,_rgba(0,128,255,0.4)_0%,_rgba(0,128,255,0)_60%)] w-[350px] h-[350px] top-[40%] left-[65%] animate-blob rounded-full opacity-60"
-            style={{ animationDelay: '10s' }}
-          ></div>
-
-          <div
-            className="absolute bg-[radial-gradient(circle_at_center,_rgba(255,0,0,0.3)_0%,_rgba(255,0,0,0)_60%)] w-[500px] h-[500px] top-[10%] left-[10%] animate-blob rounded-full opacity-60"
-            style={{ animationDuration: '30s' }}
-          ></div>
+      <div className="fixed inset-0 -z-50 overflow-hidden bg-black">
+        <div className="relative w-full h-full filter-[url(#blurMe)] blob-wrapper">
+          {/* Yellow Blob */}
+          <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(255,255,0,0.7)_40%,_rgba(255,255,0,0)_60%)] w-[400px] h-[400px] top-[30%] left-[10%] animate-move0 rounded-full opacity-80"></div>
+          {/* Pink Blob */}
+          <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(255,0,128,0.7)_40%,_rgba(255,0,128,0)_60%)] w-[550px] h-[550px] top-[20%] left-[30%] animate-move1 rounded-full opacity-80"></div>
+          {/* Cyan Blob */}
+          <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(0,255,255,0.7)_40%,_rgba(0,255,255,0)_60%)] w-[650px] h-[650px] top-[60%] left-[20%] animate-move2 rounded-full opacity-80"></div>
+          {/* Blue Blob */}
+          <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(0,128,255,0.7)_40%,_rgba(0,128,255,0)_60%)] w-[700px] h-[700px] top-[40%] left-[65%] animate-move3 rounded-full opacity-80"></div>
+          {/* Red Blob */}
+          <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(255,0,0,0.7)_40%,_rgba(255,0,0,0)_60%)] w-[800px] h-[800px] top-[10%] left-[10%] animate-move4 rounded-full opacity-80"></div>
         </div>
       </div>
       {/* Main content */}
