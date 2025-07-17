@@ -2,7 +2,18 @@
 
 /* Change blur level */
 .blob-wrapper {
-  filter: url(#blurMe) blur(80px);
+  filter: url(#blurMe) blur(15px);
+}
+
+/* Gradient style */
+.bg-dark-gradient {
+  background: linear-gradient(
+    to top,
+    #0a0a0a 0%,
+    #0d0d0d 30%,
+    #111111 60%,
+    #141414 100%
+  );
 }
 
 /* Animation styles */
@@ -17,7 +28,6 @@
     transform: translateY(-50%);
   }
 }
-
 @keyframes moveInCircle {
   0% {
     transform: rotate(0deg);
@@ -30,26 +40,23 @@
   }
 }
 
+/* Animation settings */
 .animate-move0 {
   transform-origin: center center;
   animation: moveVertical 30s linear infinite;
 }
-
 .animate-move1 {
   transform-origin: calc(50% - 400px);
   animation: moveInCircle 20s reverse infinite;
 }
-
 .animate-move2 {
   transform-origin: calc(50% - 400px);
   animation: moveInCircle 40s linear infinite;
 }
-
 .animate-move3 {
   transform-origin: calc(50% - 400px);
   animation: moveInCircle 40s ease infinite;
 }
-
 .animate-move4 {
   transform-origin: calc(50% - 400px);
   animation: moveInCircle 20s ease infinite;
