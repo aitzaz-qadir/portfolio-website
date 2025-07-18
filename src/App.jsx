@@ -44,12 +44,12 @@ function App() {
         </div>
       </div>
       {/* Navbar */}
-      <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 bg-neutral-900/70 backdrop-blur-md rounded-lg px-4 py-2 flex space-x-4 border border-white/20 shadow-lg font-bold">
+      <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 bg-neutral-900/70 backdrop-blur-md rounded-lg px-2 py-2 flex space-x-2 border border-white/20 shadow-lg font-bold">
         {['Intro', 'Experience', 'Projects', 'About', 'Contact'].map((item) => (
           <a
             key={item}
             href={`#${item.toLowerCase()}`}
-            className="text-white text-sm px-3 py-1 rounded-md transition-all duration-300 hover:bg-white/10 hover:shadow-lg"
+            className="text-white text-base px-3 py-1 rounded-md transition-all duration-300 hover:bg-white/10 hover:shadow-lg"
           >
             {item}
           </a>
