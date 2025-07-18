@@ -44,23 +44,30 @@ function App() {
         </div>
       </div>
       {/* Navbar */}
-      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-neutral-900/70 backdrop-blur-md rounded-full px-4 py-2 flex space-x-4 border border-white/20 shadow-lg">
+      <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 bg-neutral-900/70 backdrop-blur-md rounded-lg px-4 py-2 flex space-x-4 border border-white/20 shadow-lg font-bold">
         {['Intro', 'Experience', 'Projects', 'About', 'Contact'].map((item) => (
           <a
             key={item}
             href={`#${item.toLowerCase()}`}
-            className="text-white text-sm px-3 py-1 rounded-full transition-all duration-300 hover:bg-white/10 hover:shadow-lg"
+            className="text-white text-sm px-3 py-1 rounded-md transition-all duration-300 hover:bg-white/10 hover:shadow-lg"
           >
             {item}
           </a>
         ))}
       </nav>
       {/* Main content */}
-      <div className="min-h-screen flex items-center justify-center text-white">
+      <div
+        id="intro"
+        className="min-h-screen flex items-center justify-center text-white"
+      >
         <h1 className="text-5xl font-extrabold drop-shadow-lg animate-pulse">
           Hello, World! 🌍
         </h1>
       </div>
+      <div id="experience" className="min-h-screen"></div>
+      <div id="projects" className="min-h-screen"></div>
+      <div id="about" className="min-h-screen"></div>
+      <div id="contact" className="min-h-screen"></div>
     </>
   );
 }
