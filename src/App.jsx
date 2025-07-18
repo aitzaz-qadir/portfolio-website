@@ -43,6 +43,18 @@ function App() {
           <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(255,60,60,0.7)_40%,_rgba(255,0,0,0)_60%)] w-[800px] h-[800px] top-[70%] left-[50%] animate-move4 rounded-full opacity-80 mix-blend-multiply"></div>
         </div>
       </div>
+      {/* Navbar */}
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-neutral-900/70 backdrop-blur-md rounded-full px-4 py-2 flex space-x-4 border border-white/20 shadow-lg">
+        {['Intro', 'Experience', 'Projects', 'About', 'Contact'].map((item) => (
+          <a
+            key={item}
+            href={`#${item.toLowerCase()}`}
+            className="text-white text-sm px-3 py-1 rounded-full transition-all duration-300 hover:bg-white/10 hover:shadow-lg"
+          >
+            {item}
+          </a>
+        ))}
+      </nav>
       {/* Main content */}
       <div className="min-h-screen flex items-center justify-center text-white">
         <h1 className="text-5xl font-extrabold drop-shadow-lg animate-pulse">
