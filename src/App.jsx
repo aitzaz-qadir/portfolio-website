@@ -80,7 +80,7 @@ function App() {
       >
         <div
           id="profile"
-          className="w-45 h-45 overflow-hidden rounded-full mb-6 shadow-[0_0_20px_rgba(255,255,255,0.1)] border-2 border-white/10"
+          className="w-45 h-45 overflow-hidden rounded-full mb-7 shadow-[0_0_20px_rgba(255,255,255,0.1)] border-2 border-white/10"
         >
           <img
             src="/assets/profilePic.jpg"
@@ -90,8 +90,16 @@ function App() {
         </div>
         <div
           id="status"
-          className="w-80 h-14 bg-gray-700 rounded-full mb-4"
-        ></div>
+          className="flex items-center justify-center w-75 h-12 bg-neutral-900/70 backdrop-blur-md rounded-full border border-white/20 text-white shadow-lg space-x-3 px-4 py-2"
+        >
+          <div className="relative w-3 h-3">
+            <span className="absolute inline-flex w-full h-full rounded-full bg-green-500 opacity-75 animate-ping"></span>
+            <span className="absolute inline-flex w-full h-full rounded-full bg-green-500"></span>
+          </div>
+          <span className="text-base font-semibold">
+            Seeking a Full-Time Role
+          </span>
+        </div>
       </div>
       <div
         id="experience"
