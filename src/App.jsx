@@ -73,13 +73,25 @@ function App() {
         ))}
       </nav>
       {/* Main content */}
+      {/* Hero Section */}
       <div
         id="intro"
-        className="min-h-screen flex items-center justify-center text-white"
+        className="min-h-screen flex flex-col items-center justify-center text-white px-4"
       >
-        <h1 className="text-5xl font-extrabold drop-shadow-lg animate-pulse">
-          Intro 👋
-        </h1>
+        <div
+          id="profile"
+          className="w-45 h-45 overflow-hidden rounded-full mb-6 shadow-[0_0_20px_rgba(255,255,255,0.1)] border-2 border-white/10"
+        >
+          <img
+            src="/assets/profilePic.jpg"
+            alt="Profile"
+            className="w-full h-full object-cover object-[50%_10%]"
+          />
+        </div>
+        <div
+          id="status"
+          className="w-80 h-14 bg-gray-700 rounded-full mb-4"
+        ></div>
       </div>
       <div
         id="experience"
