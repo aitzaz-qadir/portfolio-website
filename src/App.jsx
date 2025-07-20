@@ -1,6 +1,18 @@
 import React from 'react';
 import './index.css';
 
+// Smooth scroll function
+const scrollToSection = (sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({
+      behavior: 'smooth',
+    });
+  } else {
+    console.error(`Section with id ${sectionId} not found.`);
+  }
+};
+
 // Main application component
 function App() {
   return (
@@ -49,6 +61,11 @@ function App() {
           <a
             key={item}
             href={`#${item.toLowerCase()}`}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection(item.toLowerCase());
+              window.history.pushState(null, null, `#${item.toLowerCase()}`);
+            }}
             className="text-white text-base px-3 py-1 rounded-md transition-all duration-300 hover:bg-white/10 hover:shadow-lg"
           >
             {item}
@@ -61,13 +78,41 @@ function App() {
         className="min-h-screen flex items-center justify-center text-white"
       >
         <h1 className="text-5xl font-extrabold drop-shadow-lg animate-pulse">
-          Hello, World! 🌍
+          Intro 👋
         </h1>
       </div>
-      <div id="experience" className="min-h-screen"></div>
-      <div id="projects" className="min-h-screen"></div>
-      <div id="about" className="min-h-screen"></div>
-      <div id="contact" className="min-h-screen"></div>
+      <div
+        id="experience"
+        className="min-h-screen flex items-center justify-center text-white bg-gradient-to-br from-blue-900/20 to-cyan-900/20"
+      >
+        <h1 className="text-5xl font-extrabold drop-shadow-lg animate-pulse">
+          Experience 👔
+        </h1>
+      </div>
+      <div
+        id="projects"
+        className="min-h-screen flex items-center justify-center text-white bg-gradient-to-br from-green-900/20 to-emerald-900/20"
+      >
+        <h1 className="text-5xl font-extrabold drop-shadow-lg animate-pulse">
+          Projects 🚀
+        </h1>
+      </div>
+      <div
+        id="about"
+        className="min-h-screen flex items-center justify-center text-white bg-gradient-to-br from-orange-900/20 to-red-900/20"
+      >
+        <h1 className="text-5xl font-extrabold drop-shadow-lg animate-pulse">
+          About Me 👤
+        </h1>
+      </div>
+      <div
+        id="contact"
+        className="min-h-screen flex items-center justify-center text-white bg-gradient-to-br from-indigo-900/20 to-purple-900/20"
+      >
+        <h1 className="text-5xl font-extrabold drop-shadow-lg animate-pulse">
+          Contact 📧
+        </h1>
+      </div>
     </>
   );
 }
