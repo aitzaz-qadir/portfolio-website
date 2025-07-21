@@ -16,13 +16,32 @@ const scrollToSection = (sectionId) => {
 // Main application component
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('intro');
 
   // Custom hook to handle scroll events
   useEffect(() => {
     const handleScroll = () => {
       // 60% of viewport height
-      const scrollThreshold = window.innerHeight * 0.6;
+      const scrollThreshold = window.innerHeight * 0.1;
       setIsScrolled(window.scrollY > scrollThreshold);
+
+      // Determine active section based on scroll position
+      const sections = ['intro', 'experience', 'projects', 'about', 'contact'];
+      const scrollPosition = window.scrollY + scrollThreshold / 2;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -72,24 +91,39 @@ function App() {
       </div>
       {/* Navbar */}
       <nav
-        className={`fixed z-50 transition-all duration-700 ease-in-out bg-neutral-900/90 backdrop-blur-xl shadow-md
+        className={`fixed z-50 transition-all duration-200 ease-in-out bg-neutral-900/90 backdrop-blur-xl shadow-md
           ${isScrolled ? 'top-0' : 'top-8'} 
-        left-1/2 -translate-x-1/2 rounded-lg px-2 py-2 flex space-x-2 border border-white/20 font-bold`}
+        left-1/2 -translate-x-1/2 px-2 py-2 flex space-x-2 font-bold
+          ${
+            isScrolled
+              ? 'rounded-b-lg border-l border-r border-b border-white/20'
+              : 'rounded-lg border border-white/20'
+          }`}
       >
-        {['Intro', 'Experience', 'Projects', 'About', 'Contact'].map((item) => (
-          <a
-            key={item}
-            href={`#${item.toLowerCase()}`}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection(item.toLowerCase());
-              window.history.pushState(null, null, `#${item.toLowerCase()}`);
-            }}
-            className="text-white text-base px-3 py-1 rounded-md transition-all duration-300 hover:bg-white/10 hover:shadow-lg"
-          >
-            {item}
-          </a>
-        ))}
+        {['Intro', 'Experience', 'Projects', 'About', 'Contact'].map((item) => {
+          const sectionId = item.toLowerCase();
+          const isActive = activeSection === sectionId;
+
+          return (
+            <a
+              key={item}
+              href={`#${sectionId}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(sectionId);
+                setActiveSection(sectionId);
+                window.history.pushState(null, null, `#${sectionId}`);
+              }}
+              className={`text-base px-3 py-1 rounded-md transition-all duration-200 ${
+                isActive
+                  ? 'text-black bg-white shadow-[0_0_8px_rgba(255,255,255,0.3)]'
+                  : 'text-white/70 hover:text-white hover:bg-white/10 hover:shadow-lg'
+              }`}
+            >
+              {item}
+            </a>
+          );
+        })}
       </nav>
       {/* Main content */}
       {/* Hero Section */}
