@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.css';
 
 // Smooth scroll function
@@ -15,6 +15,21 @@ const scrollToSection = (sectionId) => {
 
 // Main application component
 function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Custom hook to handle scroll events
+  useEffect(() => {
+    const handleScroll = () => {
+      // 60% of viewport height
+      const scrollThreshold = window.innerHeight * 0.6;
+      setIsScrolled(window.scrollY > scrollThreshold);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
       {/* SVG filter */}
@@ -56,7 +71,11 @@ function App() {
         </div>
       </div>
       {/* Navbar */}
-      <nav className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 bg-neutral-900/70 backdrop-blur-md rounded-lg px-2 py-2 flex space-x-2 border border-white/20 shadow-lg font-bold">
+      <nav
+        className={`fixed z-50 transition-all duration-700 ease-in-out bg-neutral-900/90 backdrop-blur-xl shadow-md
+          ${isScrolled ? 'top-0' : 'top-8'} 
+        left-1/2 -translate-x-1/2 rounded-lg px-2 py-2 flex space-x-2 border border-white/20 font-bold`}
+      >
         {['Intro', 'Experience', 'Projects', 'About', 'Contact'].map((item) => (
           <a
             key={item}
