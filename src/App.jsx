@@ -129,7 +129,7 @@ function App() {
       {/* Hero Section */}
       <div
         id="intro"
-        className="min-h-screen flex flex-col items-center justify-center text-white px-4"
+        className="relative min-h-screen flex flex-col items-center justify-center text-white px-4"
       >
         <div
           id="profile"
@@ -163,6 +163,12 @@ function App() {
           I’m a recent Computer Science graduate with hands-on experience in web
           development, backend systems, and data-driven projects.
         </p>
+        <button
+          onClick={() => scrollToSection('experience')}
+          className="scroll-button group absolute bottom-10 px-6 py-3 font-semibold text-white backdrop-blur-md bg-neutral-900/70 border border-transparent rounded-full shadow-lg"
+        >
+          <span className="relative z-10">Scroll to Explore ↓</span>
+        </button>
       </div>
       <div
         id="experience"
