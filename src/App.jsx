@@ -165,9 +165,25 @@ function App() {
         </p>
         <button
           onClick={() => scrollToSection('experience')}
-          className="scroll-button group absolute bottom-10 px-6 py-3 font-semibold text-white backdrop-blur-md bg-neutral-900/70 border border-transparent rounded-full shadow-lg"
+          className="scroll-button group absolute bottom-10 px-6 py-3 font-semibold text-white backdrop-blur-md bg-neutral-900/70 border border-white/10 rounded-full shadow-lg cursor-pointer transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
         >
-          <span className="relative z-10">Scroll to Explore ↓</span>
+          <span className="flex items-center gap-2 relative z-10">
+            Scroll to Explore
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              className="w-5 h-5 animate-bounce-up-down"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+              />
+            </svg>
+          </span>
         </button>
       </div>
       <div
