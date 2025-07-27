@@ -75,3 +75,27 @@
 .animate-bounce-up-down {
   animation: bounceUpDown 1.2s ease-in-out infinite;
 }
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.8s ease-out forwards;
+}
+
+.experience-card {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.experience-card.animate {
+  animation: slideInFromRight 0.8s ease-out forwards;
+}

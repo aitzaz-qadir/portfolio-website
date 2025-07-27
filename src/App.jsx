@@ -17,6 +17,9 @@ const scrollToSection = (sectionId) => {
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('intro');
+  const [visibleCards, setVisibleCards] = useState(new Set());
+  const [hasNavigatedToExperience, setHasNavigatedToExperience] =
+    useState(false);
 
   // Custom hook to handle scroll events
   useEffect(() => {
@@ -38,16 +41,47 @@ function App() {
             scrollPosition < offsetTop + offsetHeight
           ) {
             setActiveSection(section);
+
+            // If user navigated to experience section, show all cards immediately
+            if (section === 'experience' && !hasNavigatedToExperience) {
+              setHasNavigatedToExperience(true);
+              setVisibleCards(new Set([0, 1, 2])); // Show all 3 cards
+              return; // Skip the individual card visibility check
+            }
             break;
           }
         }
       }
+
+      // Check for experience cards visibility (only if not navigated directly)
+      if (!hasNavigatedToExperience) {
+        const experienceCards = document.querySelectorAll('.experience-card');
+        experienceCards.forEach((card, index) => {
+          const rect = card.getBoundingClientRect();
+          const isVisible = rect.top < window.innerHeight * 0.8;
+
+          if (isVisible && !visibleCards.has(index)) {
+            setVisibleCards((prev) => new Set([...prev, index]));
+          }
+        });
+      }
     };
+
     window.addEventListener('scroll', handleScroll);
+    // Check on initial load
+    handleScroll();
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [visibleCards, hasNavigatedToExperience]);
+
+  // Modified scroll function to handle experience section specially
+  const scrollToExperience = () => {
+    setHasNavigatedToExperience(true);
+    setVisibleCards(new Set([0, 1, 2])); // Show all cards immediately
+    scrollToSection('experience');
+  };
 
   return (
     <>
@@ -110,7 +144,11 @@ function App() {
               href={`#${sectionId}`}
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection(sectionId);
+                if (sectionId === 'experience') {
+                  scrollToExperience();
+                } else {
+                  scrollToSection(sectionId);
+                }
                 setActiveSection(sectionId);
                 window.history.pushState(null, null, `#${sectionId}`);
               }}
@@ -164,7 +202,7 @@ function App() {
           development, backend systems, and data-driven projects.
         </p>
         <button
-          onClick={() => scrollToSection('experience')}
+          onClick={scrollToExperience}
           className="scroll-button group absolute bottom-10 px-6 py-3 font-semibold text-white backdrop-blur-md bg-neutral-900/70 border border-white/10 rounded-full shadow-lg cursor-pointer transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
         >
           <span className="flex items-center gap-2 relative z-10">
@@ -188,11 +226,215 @@ function App() {
       </div>
       <div
         id="experience"
-        className="min-h-screen flex items-center justify-center text-white bg-gradient-to-br from-blue-900/20 to-cyan-900/20"
+        className="min-h-screen flex flex-col items-center justify-center text-white px-4 py-20"
       >
-        <h1 className="text-5xl font-extrabold drop-shadow-lg animate-pulse">
+        <h1 className="text-5xl font-extrabold drop-shadow-lg mb-16 text-center">
           Experience 👔
         </h1>
+        <div className="max-w-4xl w-full relative">
+          {/* Timeline line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-white/20 via-white/40 to-white/20"></div>
+          {/* Experience items */}
+          <div className="space-y-12">
+            {/* Experience #1 */}
+            <div
+              className={`relative flex items-start space-x-8 experience-card ${visibleCards.has(0) ? 'animate' : ''}`}
+              style={{ animationDelay: '0.1s' }}
+            >
+              {/* Timeline dot */}
+              <div className="relative z-10 w-4 h-4 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.5)] border-2 border-white/20 flex-shrink-0 mt-6"></div>
+              {/* Content card */}
+              <div className="flex-1 bg-neutral-900/70 backdrop-blur-md rounded-xl border border-white/20 p-6 shadow-lg hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-white">
+                      Junior Web Development Consultant
+                    </h3>
+                    <p className="text-lg text-white/80 font-semibold">
+                      Content Bloom (Co-op)
+                    </p>
+                  </div>
+                  <span className="text-sm text-white/60 bg-white/10 px-3 py-1 rounded-full mt-2 sm:mt-0 self-start">
+                    Sept 2021 — Dec 2021
+                  </span>
+                </div>
+                <ul className="text-white/70 space-y-2 mb-4">
+                  <li className="flex items-start space-x-2">
+                    <span className="text-white/40">•</span>
+                    <span>
+                      Identified and remediated 1,300+ accessibility violations
+                      across 15+ enterprise websites, boosting WCAG compliance
+                      scores by over 85% using WAVE and semantic HTML
+                      optimization.
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-white/40">•</span>
+                    <span>
+                      Engineered 12+ dynamic PDF/HTML forms with auto-fill,
+                      validation, and conditional logic using Adobe LiveCycle
+                      and JavaScript, reducing form error rates by 60%.
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-white/40">•</span>
+                    <span>
+                      Partnered with cross-functional teams and clients to
+                      deploy accessibility fixes and iterate on financial form
+                      requirements, cutting delivery timelines by 30%.
+                    </span>
+                  </li>
+                </ul>
+                {/* Skill list */}
+                <div className="flex flex-wrap gap-2 mt-1">
+                  {[
+                    'HTML/CSS',
+                    'JavaScript',
+                    'CMS',
+                    'Adobe LiveCycle',
+                    'Git',
+                    'JIRA',
+                    'Agile Methodologies',
+                  ].map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-xs px-2 py-1 bg-white/10 text-white/80 rounded-md border border-white/10 hover:bg-white/20 transition-colors duration-200"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            {/* Experience #2 */}
+            <div
+              className={`relative flex items-start space-x-8 experience-card ${visibleCards.has(1) ? 'animate' : ''}`}
+              style={{ animationDelay: '0.2s' }}
+            >
+              <div className="relative z-10 w-4 h-4 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.5)] border-2 border-white/20 flex-shrink-0 mt-6"></div>
+              <div className="flex-1 bg-neutral-900/70 backdrop-blur-md rounded-xl border border-white/20 p-6 shadow-lg hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-white">
+                      Residence Assistant
+                    </h3>
+                    <p className="text-lg text-white/80 font-semibold">
+                      Dalhousie University
+                    </p>
+                  </div>
+                  <span className="text-sm text-white/60 bg-white/10 px-3 py-1 rounded-full mt-2 sm:mt-0 self-start">
+                    Sept 2021 — April 2022
+                  </span>
+                </div>
+                <ul className="text-white/70 space-y-2 mb-4">
+                  <li className="flex items-start space-x-2">
+                    <span className="text-white/40">•</span>
+                    <span>
+                      Selected to provide leadership, support, and mentoring to
+                      students living in on-campus residences.
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-white/40">•</span>
+                    <span>
+                      Organized social/educational events, responded to
+                      emergencies, and maintained order within the residence.
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-white/40">•</span>
+                    <span>
+                      Successfully fostered a safe and supportive living
+                      environment, enhancing resident satisfaction and
+                      compliance with university policies through the use of
+                      conflict resolution and crisis management skills.
+                    </span>
+                  </li>
+                </ul>
+                {/* Skill list */}
+                <div className="flex flex-wrap gap-2 mt-1">
+                  {[
+                    'Leadership',
+                    'Conflict Resolution',
+                    'Crisis Management',
+                    'Event Planning',
+                    'Communication',
+                    'Teamwork',
+                  ].map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-xs px-2 py-1 bg-white/10 text-white/80 rounded-md border border-white/10 hover:bg-white/20 transition-colors duration-200"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            {/* Experience #3 */}
+            <div
+              className={`relative flex items-start space-x-8 experience-card ${visibleCards.has(2) ? 'animate' : ''}`}
+              style={{ animationDelay: '0.3s' }}
+            >
+              <div className="relative z-10 w-4 h-4 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.5)] border-2 border-white/20 flex-shrink-0 mt-6"></div>
+              <div className="flex-1 bg-neutral-900/70 backdrop-blur-md rounded-xl border border-white/20 p-6 shadow-lg hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-white">
+                      Store Clerk
+                    </h3>
+                    <p className="text-lg text-white/80 font-semibold">
+                      Atlantic Superstore
+                    </p>
+                  </div>
+                  <span className="text-sm text-white/60 bg-white/10 px-3 py-1 rounded-full mt-2 sm:mt-0 self-start">
+                    Jan 2025 — June 2025
+                  </span>
+                </div>
+                <ul className="text-white/70 space-y-2 mb-4">
+                  <li className="flex items-start space-x-2">
+                    <span className="text-white/40">•</span>
+                    <span>
+                      Worked night shifts to ensure shelves were fully stocked
+                      and organized for daily operations.
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-white/40">•</span>
+                    <span>
+                      Collaborated with a team to unload, sort, and stock
+                      inventory accurately and efficiently.
+                    </span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-white/40">•</span>
+                    <span>
+                      Maintained back storage areas, ensuring organization and
+                      cleanliness for smooth inventory flow.
+                    </span>
+                  </li>
+                </ul>
+                {/* Skill list */}
+                <div className="flex flex-wrap gap-2 mt-1">
+                  {[
+                    'Customer Service',
+                    'Inventory Management',
+                    'Team Collaboration',
+                    'Time Management',
+                    'Problem Solving',
+                  ].map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-xs px-2 py-1 bg-white/10 text-white/80 rounded-md border border-white/10 hover:bg-white/20 transition-colors duration-200"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         id="projects"
