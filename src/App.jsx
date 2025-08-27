@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import profilePic from '/assets/profilePic.jpg';
 import './index.css';
 
 // Smooth scroll function
@@ -185,7 +184,7 @@ function App() {
           className="w-45 h-45 overflow-hidden rounded-full mb-7 shadow-[0_0_20px_rgba(255,255,255,0.1)] border-2 border-white/10"
         >
           <img
-            src={profilePic}
+            src="https://avatars.githubusercontent.com/u/71240832?v=4"
             alt="Profile"
             className="w-full h-full object-cover object-[50%_10%]"
           />
