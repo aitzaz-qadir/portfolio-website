@@ -208,8 +208,8 @@ function App() {
           </span>
         </h1>
         <p className="text-lg text-center max-w-xl mb-6 font-semibold ">
-          I'm a recent Computer Science graduate with hands-on experience in web
-          development, backend systems, and data-driven projects.
+          I&apos;m a recent Computer Science graduate with hands-on experience
+          in web development, backend systems, and data-driven projects.
         </p>
         <button
           onClick={scrollToExperience}
@@ -455,11 +455,11 @@ function App() {
         className="min-h-screen flex flex-col items-center justify-center text-white px-4 py-20"
       >
         <h1 className="text-5xl font-extrabold drop-shadow-lg mb-8 text-center">
-          Let's Connect! 📧
+          Let&apos;s Connect! 📧
         </h1>
         <p className="text-lg text-center text-white/80 mb-16 max-w-2xl">
-          I'm always open to discussing new opportunities, interesting projects,
-          or just having a chat about technology.
+          I&apos;m always open to discussing new opportunities, interesting
+          projects, or just having a chat about technology.
         </p>
 
         <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -500,7 +500,9 @@ function App() {
                 </svg>
               </div>
               <h3 className="text-xl font-bold mb-2">LinkedIn</h3>
-              <p className="text-white/70 mb-4">Let's connect professionally</p>
+              <p className="text-white/70 mb-4">
+                Let&apos;s connect professionally
+              </p>
               <a
                 href="https://www.linkedin.com/in/aitzaz-qadir/"
                 target="_blank"
