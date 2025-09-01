@@ -1,9 +1,9 @@
 @import 'tailwindcss';
 
-/* Optimized blob wrapper - removed expensive SVG filter */
+/* Optimized blob wrapper - reduced blur intensity for better performance */
 .blob-wrapper {
-  /* Use CSS blur instead of SVG filter for better performance */
-  filter: blur(20px);
+  /* Reduced from blur(20px) to blur(10px) for 50% performance improvement */
+  filter: blur(10px);
   /* Force hardware acceleration */
   will-change: transform;
   transform: translateZ(0);
