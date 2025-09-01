@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import './index.css';
 
 // Smooth scroll function
@@ -21,14 +21,35 @@ function App() {
   const [hasNavigatedToExperience, setHasNavigatedToExperience] =
     useState(false);
 
-  // Custom hook to handle scroll events
-  useEffect(() => {
-    const handleScroll = () => {
-      // 60% of viewport height
+  // Throttled scroll handler for better performance
+  const throttle = useCallback((func, delay) => {
+    let timeoutId;
+    let lastExecTime = 0;
+    return function (...args) {
+      const currentTime = Date.now();
+
+      if (currentTime - lastExecTime > delay) {
+        func.apply(this, args);
+        lastExecTime = currentTime;
+      } else {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(
+          () => {
+            func.apply(this, args);
+            lastExecTime = Date.now();
+          },
+          delay - (currentTime - lastExecTime)
+        );
+      }
+    };
+  }, []);
+
+  // Optimized scroll handler with throttling
+  const handleScroll = useCallback(
+    throttle(() => {
       const scrollThreshold = window.innerHeight * 0.1;
       setIsScrolled(window.scrollY > scrollThreshold);
 
-      // Updated sections array to include only available sections
       const sections = ['intro', 'experience', 'contact'];
       const scrollPosition = window.scrollY + scrollThreshold / 2;
 
@@ -42,18 +63,17 @@ function App() {
           ) {
             setActiveSection(section);
 
-            // If user navigated to experience section, show all cards immediately
             if (section === 'experience' && !hasNavigatedToExperience) {
               setHasNavigatedToExperience(true);
-              setVisibleCards(new Set([0, 1, 2])); // Show all 3 cards
-              return; // Skip the individual card visibility check
+              setVisibleCards(new Set([0, 1, 2]));
+              return;
             }
             break;
           }
         }
       }
 
-      // Check for experience cards visibility (only if not navigated directly)
+      // Optimized card visibility check
       if (!hasNavigatedToExperience) {
         const experienceCards = document.querySelectorAll('.experience-card');
         experienceCards.forEach((card, index) => {
@@ -65,64 +85,53 @@ function App() {
           }
         });
       }
-    };
+    }, 16),
+    [hasNavigatedToExperience, visibleCards, throttle]
+  ); // 60fps throttling
 
-    window.addEventListener('scroll', handleScroll);
-    // Check on initial load
-    handleScroll();
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Check on initial load
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [visibleCards, hasNavigatedToExperience]);
+  }, [handleScroll]);
 
-  // Modified scroll function to handle experience section specially
-  const scrollToExperience = () => {
+  const scrollToExperience = useCallback(() => {
     setHasNavigatedToExperience(true);
-    setVisibleCards(new Set([0, 1, 2])); // Show all cards immediately
+    setVisibleCards(new Set([0, 1, 2]));
     scrollToSection('experience');
-  };
+  }, []);
+
+  // Memoized blob components for better performance
+  const blobComponents = useMemo(
+    () => (
+      <>
+        {/* Magenta Blob - slightly smaller and optimized */}
+        <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(255,0,128,0.7)_35%,_rgba(255,255,0,0)_70%)] w-[500px] h-[500px] top-[30%] left-[10%] animate-move0 rounded-full blob opacity-90"></div>
+        {/* Purple Blob */}
+        <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(180,100,255,0.7)_35%,_rgba(255,0,128,0)_70%)] w-[600px] h-[600px] top-[10%] left-[30%] animate-move1 rounded-full blob opacity-90"></div>
+        {/* Cyan Blob */}
+        <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(0,200,200,0.7)_35%,_rgba(0,255,255,0)_70%)] w-[700px] h-[700px] top-[25%] left-[70%] animate-move2 rounded-full blob opacity-90"></div>
+        {/* Blue Blob */}
+        <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(80,160,255,0.7)_35%,_rgba(0,128,255,0)_70%)] w-[550px] h-[550px] top-[60%] left-[80%] animate-move3 rounded-full blob opacity-90"></div>
+        {/* Red Blob */}
+        <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(255,60,60,0.7)_35%,_rgba(255,0,0,0)_70%)] w-[600px] h-[600px] top-[70%] left-[50%] animate-move4 rounded-full blob opacity-90"></div>
+      </>
+    ),
+    []
+  );
 
   return (
-    <>
-      {/* SVG filter */}
-      <svg className="absolute w-0 h-0">
-        <defs>
-          <filter id="blurMe">
-            <feGaussianBlur
-              in="SourceGraphic"
-              stdDeviation="30"
-              result="blur"
-            />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              values="
-                1 0 0 0 0  
-                0 1 0 0 0  
-                0 0 1 0 0  
-                0 0 0 40 -20"
-              result="goo"
-            />
-            <feBlend in="SourceGraphic" in2="goo" />
-          </filter>
-        </defs>
-      </svg>
-      {/* Blob container */}
+    <div className="scroll-optimized">
+      {/* Optimized blob container - removed SVG filter entirely */}
       <div className="fixed inset-0 -z-50 overflow-hidden bg-gradient-to-t from-[#0a0a0a] via-[#0e0e0e] to-[#121212]">
-        <div className="relative w-full h-full filter-[url(#blurMe)] blob-wrapper">
-          {/* Magenta Blob */}
-          <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(255,0,128,0.65)_40%,_rgba(255,255,0,0)_60%)] w-[600px] h-[600px] top-[30%] left-[10%] animate-move0 rounded-full opacity-80 mix-blend-multiply"></div>
-          {/* Purple Blob */}
-          <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(180,100,255,0.65)_40%,_rgba(255,0,128,0)_60%)] w-[750px] h-[750px] top-[10%] left-[30%] animate-move1 rounded-full opacity-80 mix-blend-multiply"></div>
-          {/* Cyan Blob */}
-          <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(0,200,200,0.65)_40%,_rgba(0,255,255,0)_60%)] w-[900px] h-[900px] top-[25%] left-[70%] animate-move2 rounded-full opacity-80 mix-blend-multiply"></div>
-          {/* Blue Blob */}
-          <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(80,160,255,0.65)_40%,_rgba(0,128,255,0)_60%)] w-[700px] h-[700px] top-[60%] left-[80%] animate-move3 rounded-full opacity-80 mix-blend-multiply"></div>
-          {/* Red Blob */}
-          <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(255,60,60,0.65)_40%,_rgba(255,0,0,0)_60%)] w-[800px] h-[800px] top-[70%] left-[50%] animate-move4 rounded-full opacity-80 mix-blend-multiply"></div>
+        <div className="relative w-full h-full blob-wrapper">
+          {blobComponents}
         </div>
       </div>
+
       {/* Navbar */}
       <nav
         className={`fixed z-50 transition-all duration-200 ease-in-out bg-neutral-900/90 backdrop-blur-xl shadow-md
@@ -148,7 +157,6 @@ function App() {
               onClick={(e) => {
                 e.preventDefault();
                 if (!isAvailable) {
-                  // Show coming soon message for unavailable sections
                   alert(`${item} section coming soon!`);
                   return;
                 }
@@ -173,7 +181,7 @@ function App() {
           );
         })}
       </nav>
-      {/* Main content */}
+
       {/* Hero Section */}
       <div
         id="intro"
@@ -187,6 +195,7 @@ function App() {
             src="https://avatars.githubusercontent.com/u/71240832?v=4"
             alt="Profile"
             className="w-full h-full object-cover object-[50%_10%]"
+            loading="eager"
           />
         </div>
         <div
@@ -546,7 +555,7 @@ function App() {
           <p className="text-white/60">Available for full-time opportunities</p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
