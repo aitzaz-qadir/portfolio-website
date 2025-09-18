@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Reusable component that renders a single experience item with timeline dot and content card
 const ExperienceCard = ({ experience, isVisible }) => {
   return (
     <div
@@ -10,8 +11,9 @@ const ExperienceCard = ({ experience, isVisible }) => {
       {/* Timeline dot */}
       <div className="relative z-10 w-4 h-4 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.5)] border-2 border-white/20 flex-shrink-0 mt-6"></div>
 
-      {/* Content card */}
+      {/* Content card*/}
       <div className="flex-1 bg-neutral-900/70 backdrop-blur-md rounded-xl border border-white/20 p-6 shadow-lg hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1">
+        {/* Job details */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
           <div>
             <h3 className="text-xl font-bold text-white">{experience.title}</h3>
@@ -24,6 +26,7 @@ const ExperienceCard = ({ experience, isVisible }) => {
           </span>
         </div>
 
+        {/* Job responsibilities */}
         <ul className="text-white/70 space-y-2 mb-4">
           {experience.responsibilities.map((responsibility, idx) => (
             <li key={idx} className="flex items-start space-x-2">
@@ -33,7 +36,7 @@ const ExperienceCard = ({ experience, isVisible }) => {
           ))}
         </ul>
 
-        {/* Skill list */}
+        {/* Skills list */}
         <div className="flex flex-wrap gap-2 mt-1">
           {experience.skills.map((skill) => (
             <span
@@ -49,6 +52,7 @@ const ExperienceCard = ({ experience, isVisible }) => {
   );
 };
 
+// Props to validate structure and types
 ExperienceCard.propTypes = {
   experience: PropTypes.shape({
     id: PropTypes.number.isRequired,

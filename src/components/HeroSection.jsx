@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Hero section with profile, status, introduction text, and scroll button
 const HeroSection = ({ scrollToExperience }) => {
   return (
     <div
       id="intro"
       className="relative min-h-screen flex flex-col items-center justify-center text-white px-4"
     >
+      {/* Profile picture */}
       <div
         id="profile"
         className="w-45 h-45 overflow-hidden rounded-full mb-7 shadow-[0_0_20px_rgba(255,255,255,0.1)] border-2 border-white/10"
@@ -18,6 +20,7 @@ const HeroSection = ({ scrollToExperience }) => {
           loading="eager"
         />
       </div>
+      {/* Status indicator */}
       <div
         id="status"
         className="flex items-center justify-center w-75 h-12 bg-neutral-900/70 backdrop-blur-md rounded-full border border-white/20 text-white shadow-lg space-x-3 px-4 py-2"
@@ -30,6 +33,7 @@ const HeroSection = ({ scrollToExperience }) => {
           Seeking a Full-Time Role
         </span>
       </div>
+      {/* Main introduction */}
       <h1 className="text-5xl font-extrabold mt-6 mb-4 drop-shadow-lg ">
         Hi, I&apos;m Aitzaz!
         <span role="img" aria-label="waving hand" className="animate-pulse">
@@ -40,6 +44,7 @@ const HeroSection = ({ scrollToExperience }) => {
         I&apos;m a recent Computer Science graduate with hands-on experience in
         web development, backend systems, and data-driven projects.
       </p>
+      {/* Animated button to experience section */}
       <button
         onClick={scrollToExperience}
         className="scroll-button group absolute bottom-10 px-6 py-3 font-semibold text-white backdrop-blur-md bg-neutral-900/70 border border-white/10 rounded-full shadow-lg cursor-pointer transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"

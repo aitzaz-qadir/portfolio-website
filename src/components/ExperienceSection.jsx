@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import ExperienceCard from './ExperienceCard';
+
+// Importing experience data from JSON file
 import experiencesData from '../data/experiences.json';
 
+// Experience section that displays all job experiences with timeline and scroll-triggered animations
 const ExperienceSection = ({ hasNavigatedToExperience }) => {
   const [visibleCards, setVisibleCards] = useState(new Set());
 
@@ -21,14 +24,14 @@ const ExperienceSection = ({ hasNavigatedToExperience }) => {
     }
   }, [hasNavigatedToExperience, visibleCards]);
 
-  // Handle navigation to experience section
+  // If navigated via button, show first 3 cards immediately
   useEffect(() => {
     if (hasNavigatedToExperience) {
       setVisibleCards(new Set([0, 1, 2]));
     }
   }, [hasNavigatedToExperience]);
 
-  // Add scroll listener for card visibility
+  // Scroll listener to trigger visibility checks
   useEffect(() => {
     const handleScroll = () => {
       checkCardVisibility();
@@ -51,10 +54,10 @@ const ExperienceSection = ({ hasNavigatedToExperience }) => {
         Experience 👔
       </h1>
       <div className="max-w-4xl w-full relative">
-        {/* Timeline line */}
+        {/* Vertical timeline line */}
         <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-white/20 via-white/40 to-white/20"></div>
 
-        {/* Experience items */}
+        {/* Loop through JSON to render each experience item */}
         <div className="space-y-12">
           {experiencesData.map((experience, index) => (
             <ExperienceCard

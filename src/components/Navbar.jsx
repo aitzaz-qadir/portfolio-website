@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Navigation component that provides smooth scrolling between sections and visual feedback
 const Navbar = ({
   isScrolled,
   activeSection,
@@ -19,6 +20,7 @@ const Navbar = ({
             : 'rounded-lg border border-white/20'
         }`}
     >
+      {/* Loop through navigation items and create clickable links */}
       {['Intro', 'Experience', 'Projects', 'About', 'Contact'].map((item) => {
         const sectionId = item.toLowerCase();
         const isActive = activeSection === sectionId;
