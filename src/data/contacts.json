@@ -1,0 +1,71 @@
+[
+  {
+    "id": "email",
+    "title": "Email",
+    "description": "Drop me a line anytime",
+    "contact": "aitzazqk@gmail.com",
+    "href": "mailto:aitzazqk@gmail.com",
+    "buttonText": "aitzazqk@gmail.com",
+    "iconType": "email",
+    "colorTheme": {
+      "bg": "bg-blue-500/20",
+      "bgHover": "group-hover:bg-blue-500/30",
+      "border": "border-blue-400/30",
+      "borderHover": "hover:border-blue-400/50",
+      "shadow": "hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]",
+      "buttonBg": "bg-blue-500/20",
+      "buttonBgHover": "hover:bg-blue-500/30",
+      "buttonBorder": "border-blue-400/30",
+      "buttonBorderHover": "hover:border-blue-400/50",
+      "iconColor": "text-blue-400",
+      "buttonTextColor": "text-blue-300",
+      "buttonTextColorHover": "hover:text-blue-200"
+    }
+  },
+  {
+    "id": "linkedin",
+    "title": "LinkedIn",
+    "description": "Let's connect professionally",
+    "contact": "linkedin.com/in/aitzaz-qadir",
+    "href": "https://www.linkedin.com/in/aitzaz-qadir/",
+    "buttonText": "View Profile",
+    "iconType": "linkedin",
+    "colorTheme": {
+      "bg": "bg-blue-600/20",
+      "bgHover": "group-hover:bg-blue-600/30",
+      "border": "border-white/20",
+      "borderHover": "hover:border-blue-500/50",
+      "shadow": "hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]",
+      "buttonBg": "bg-blue-600/20",
+      "buttonBgHover": "hover:bg-blue-600/30",
+      "buttonBorder": "border-blue-500/30",
+      "buttonBorderHover": "hover:border-blue-500/50",
+      "iconColor": "text-blue-500",
+      "buttonTextColor": "text-blue-400",
+      "buttonTextColorHover": "hover:text-blue-300"
+    }
+  },
+  {
+    "id": "github",
+    "title": "GitHub",
+    "description": "Check out my code",
+    "contact": "github.com/aitzaz-qadir",
+    "href": "https://github.com/aitzaz-qadir",
+    "buttonText": "View Projects",
+    "iconType": "github",
+    "colorTheme": {
+      "bg": "bg-gray-600/20",
+      "bgHover": "group-hover:bg-gray-600/30",
+      "border": "border-white/20",
+      "borderHover": "hover:border-gray-400/50",
+      "shadow": "hover:shadow-[0_0_30px_rgba(107,114,128,0.3)]",
+      "buttonBg": "bg-gray-600/20",
+      "buttonBgHover": "hover:bg-gray-600/30",
+      "buttonBorder": "border-gray-400/30",
+      "buttonBorderHover": "hover:border-gray-400/50",
+      "iconColor": "text-gray-400",
+      "buttonTextColor": "text-gray-300",
+      "buttonTextColorHover": "hover:text-gray-200"
+    }
+  }
+]
