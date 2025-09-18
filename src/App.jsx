@@ -102,13 +102,10 @@ function App() {
         scrollToExperience={scrollToExperience}
         setActiveSection={setActiveSection}
       />
-
       {/* Hero Section */}
       <HeroSection scrollToExperience={scrollToExperience} />
-
       {/* Experience Section */}
       <ExperienceSection hasNavigatedToExperience={hasNavigatedToExperience} />
-
       {/* Contact Section */}
       <ContactSection />
     </div>
