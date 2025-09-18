@@ -1,0 +1,18 @@
+/* Base utility styles and gradients */
+
+/* Gradient style */
+.bg-dark-gradient {
+  background: linear-gradient(
+    to top,
+    #0a0a0a 0%,
+    #0d0d0d 30%,
+    #111111 60%,
+    #141414 100%
+  );
+}
+
+/* Performance optimization for scrolling */
+.scroll-optimized {
+  will-change: scroll-position;
+  -webkit-overflow-scrolling: touch;
+}

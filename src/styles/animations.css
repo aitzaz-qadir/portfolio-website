@@ -1,0 +1,41 @@
+/* Animation keyframes and related styles */
+
+@keyframes bounceUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.animate-bounce-up-down {
+  animation: bounceUpDown 1.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(100px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.8s ease-out forwards;
+}
+
+.experience-card {
+  opacity: 0;
+  transform: translate3d(100px, 0, 0);
+  will-change: transform, opacity;
+}
+
+.experience-card.animate {
+  animation: slideInFromRight 0.8s ease-out forwards;
+}
