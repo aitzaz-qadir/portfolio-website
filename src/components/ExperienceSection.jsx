@@ -48,17 +48,17 @@ const ExperienceSection = ({ hasNavigatedToExperience }) => {
   return (
     <div
       id="experience"
-      className="min-h-screen flex flex-col items-center justify-center text-white px-4 py-20"
+      className="min-h-screen flex flex-col items-center justify-center text-white px-3 sm:px-4 lg:px-8 py-12 sm:py-16 lg:py-20"
     >
-      <h1 className="text-5xl font-extrabold drop-shadow-lg mb-16 text-center">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold drop-shadow-lg mb-8 sm:mb-12 lg:mb-16 text-center px-2">
         Experience 👔
       </h1>
-      <div className="max-w-4xl w-full relative">
-        {/* Vertical timeline line */}
-        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-white/20 via-white/40 to-white/20"></div>
+      <div className="max-w-full sm:max-w-3xl lg:max-w-4xl w-full relative">
+        {/* Vertical timeline line - hidden on mobile, visible on sm+ */}
+        <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-white/20 via-white/40 to-white/20 hidden sm:block"></div>
 
         {/* Loop through JSON to render each experience item */}
-        <div className="space-y-12">
+        <div className="space-y-6 sm:space-y-8 lg:space-y-12">
           {experiencesData.map((experience, index) => (
             <ExperienceCard
               key={experience.id}

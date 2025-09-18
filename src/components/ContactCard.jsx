@@ -6,7 +6,7 @@ const ContactCard = ({ contact }) => {
   // Icon components for different contact methods
   const renderIcon = (iconType) => {
     const iconProps = {
-      className: `w-8 h-8 ${contact.colorTheme.iconColor}`,
+      className: `w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 ${contact.colorTheme.iconColor}`,
       fill: 'currentColor',
       viewBox: iconType === 'email' ? '0 0 20 20' : '0 0 24 24',
     };
@@ -38,26 +38,30 @@ const ContactCard = ({ contact }) => {
 
   return (
     <div
-      className={`group bg-neutral-900/70 backdrop-blur-md rounded-xl border ${contact.colorTheme.border} p-6 shadow-lg ${contact.colorTheme.shadow} transition-all duration-300 hover:-translate-y-2 ${contact.colorTheme.borderHover}`}
+      className={`group bg-neutral-900/70 backdrop-blur-md rounded-xl border ${contact.colorTheme.border} p-4 sm:p-5 lg:p-6 shadow-lg ${contact.colorTheme.shadow} transition-all duration-300 hover:-translate-y-2 ${contact.colorTheme.borderHover} h-full`}
     >
-      <div className="flex flex-col items-center text-center">
+      <div className="flex flex-col items-center text-center h-full">
         {/* Icon container with hover effects */}
         <div
-          className={`w-16 h-16 ${contact.colorTheme.bg} rounded-full flex items-center justify-center mb-4 ${contact.colorTheme.bgHover} transition-colors duration-300`}
+          className={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 ${contact.colorTheme.bg} rounded-full flex items-center justify-center mb-3 sm:mb-4 ${contact.colorTheme.bgHover} transition-colors duration-300`}
         >
           {renderIcon(contact.iconType)}
         </div>
 
         {/* Contact information */}
-        <h3 className="text-xl font-bold mb-2">{contact.title}</h3>
-        <p className="text-white/70 mb-4">{contact.description}</p>
+        <h3 className="text-lg sm:text-xl font-bold mb-2 leading-tight">
+          {contact.title}
+        </h3>
+        <p className="text-sm sm:text-base text-white/70 mb-3 sm:mb-4 flex-grow leading-relaxed">
+          {contact.description}
+        </p>
 
         {/* Contact link/button */}
         <a
           href={contact.href}
           target={contact.iconType !== 'email' ? '_blank' : undefined}
           rel={contact.iconType !== 'email' ? 'noopener noreferrer' : undefined}
-          className={`px-4 py-2 ${contact.colorTheme.buttonBg} border ${contact.colorTheme.buttonBorder} rounded-lg ${contact.colorTheme.buttonBgHover} ${contact.colorTheme.buttonBorderHover} transition-all duration-300 ${contact.colorTheme.buttonTextColor} ${contact.colorTheme.buttonTextColorHover}`}
+          className={`touch-friendly px-3 sm:px-4 py-2 ${contact.colorTheme.buttonBg} border ${contact.colorTheme.buttonBorder} rounded-lg ${contact.colorTheme.buttonBgHover} ${contact.colorTheme.buttonBorderHover} transition-all duration-300 ${contact.colorTheme.buttonTextColor} ${contact.colorTheme.buttonTextColorHover} text-sm sm:text-base font-medium focus-visible:focus-visible`}
         >
           {contact.buttonText}
         </a>
