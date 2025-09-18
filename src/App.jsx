@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './index.css';
 
 // Smooth scroll function
@@ -104,34 +104,8 @@ function App() {
     scrollToSection('experience');
   }, []);
 
-  // Memoized blob components for better performance
-  const blobComponents = useMemo(
-    () => (
-      <>
-        {/* Magenta Blob - slightly smaller and optimized */}
-        <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(255,0,128,0.7)_35%,_rgba(255,255,0,0)_70%)] w-[500px] h-[500px] top-[30%] left-[10%] animate-move0 rounded-full blob opacity-90"></div>
-        {/* Purple Blob */}
-        <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(180,100,255,0.7)_35%,_rgba(255,0,128,0)_70%)] w-[600px] h-[600px] top-[10%] left-[30%] animate-move1 rounded-full blob opacity-90"></div>
-        {/* Cyan Blob */}
-        <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(0,200,200,0.7)_35%,_rgba(0,255,255,0)_70%)] w-[700px] h-[700px] top-[25%] left-[70%] animate-move2 rounded-full blob opacity-90"></div>
-        {/* Blue Blob */}
-        <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(80,160,255,0.7)_35%,_rgba(0,128,255,0)_70%)] w-[550px] h-[550px] top-[60%] left-[80%] animate-move3 rounded-full blob opacity-90"></div>
-        {/* Red Blob */}
-        <div className="absolute bg-[radial-gradient(circle_at_center,_rgba(255,60,60,0.7)_35%,_rgba(255,0,0,0)_70%)] w-[600px] h-[600px] top-[70%] left-[50%] animate-move4 rounded-full blob opacity-90"></div>
-      </>
-    ),
-    []
-  );
-
   return (
-    <div className="scroll-optimized">
-      {/* Optimized blob container - removed SVG filter entirely */}
-      <div className="fixed inset-0 -z-50 overflow-hidden bg-gradient-to-t from-[#0a0a0a] via-[#0e0e0e] to-[#121212]">
-        <div className="relative w-full h-full blob-wrapper">
-          {blobComponents}
-        </div>
-      </div>
-
+    <div className="scroll-optimized min-h-screen bg-gradient-to-t from-[#0a0a0a] via-[#0e0e0e] to-[#121212]">
       {/* Navbar */}
       <nav
         className={`fixed z-50 transition-all duration-200 ease-in-out bg-neutral-900/90 backdrop-blur-xl shadow-md
