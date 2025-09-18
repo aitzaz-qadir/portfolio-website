@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Junior Web Development Consultant",
+    "company": "Content Bloom (Co-op)",
+    "period": "Sept 2021 — Dec 2021",
+    "responsibilities": [
+      "Identified and remediated 1,300+ accessibility violations across 15+ enterprise websites, boosting WCAG compliance scores by over 85% using WAVE and semantic HTML optimization.",
+      "Engineered 12+ dynamic PDF/HTML forms with auto-fill, validation, and conditional logic using Adobe LiveCycle and JavaScript, reducing form error rates by 60%.",
+      "Partnered with cross-functional teams and clients to deploy accessibility fixes and iterate on financial form requirements, cutting delivery timelines by 30%."
+    ],
+    "skills": [
+      "HTML/CSS",
+      "JavaScript",
+      "CMS",
+      "Adobe LiveCycle",
+      "Git",
+      "JIRA",
+      "Agile Methodologies"
+    ],
+    "animationDelay": "0.1s"
+  },
+  {
+    "id": 2,
+    "title": "Residence Assistant",
+    "company": "Dalhousie University",
+    "period": "Sept 2021 — April 2022",
+    "responsibilities": [
+      "Selected to provide leadership, support, and mentoring to students living in on-campus residences.",
+      "Organized social/educational events, responded to emergencies, and maintained order within the residence.",
+      "Successfully fostered a safe and supportive living environment, enhancing resident satisfaction and compliance with university policies through the use of conflict resolution and crisis management skills."
+    ],
+    "skills": [
+      "Leadership",
+      "Conflict Resolution",
+      "Crisis Management",
+      "Event Planning",
+      "Communication",
+      "Teamwork"
+    ],
+    "animationDelay": "0.2s"
+  },
+  {
+    "id": 3,
+    "title": "Store Clerk",
+    "company": "Atlantic Superstore",
+    "period": "Jan 2025 — June 2025",
+    "responsibilities": [
+      "Worked night shifts to ensure shelves were fully stocked and organized for daily operations.",
+      "Collaborated with a team to unload, sort, and stock inventory accurately and efficiently.",
+      "Maintained back storage areas, ensuring organization and cleanliness for smooth inventory flow."
+    ],
+    "skills": [
+      "Customer Service",
+      "Inventory Management",
+      "Team Collaboration",
+      "Time Management",
+      "Problem Solving"
+    ],
+    "animationDelay": "0.3s"
+  }
+]
