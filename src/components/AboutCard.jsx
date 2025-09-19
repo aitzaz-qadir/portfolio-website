@@ -83,13 +83,14 @@ const AboutCard = ({ item }) => {
 
       case 'book':
         return (
-          <div className="flex flex-col items-center text-center h-full">
-            <div className="w-20 h-28 sm:w-24 sm:h-32 lg:w-28 lg:h-36 mb-3 sm:mb-4 rounded-lg overflow-hidden shadow-lg bg-neutral-800/50">
+          <div className="flex flex-col h-full">
+            {/* Book Cover Container - matching map window size */}
+            <div className="relative w-full h-40 sm:h-44 lg:h-48 mb-3 sm:mb-4 rounded-lg overflow-hidden shadow-lg bg-neutral-800/50">
               {item.image ? (
                 <img
                   src={item.image}
                   alt={item.content}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
@@ -103,16 +104,22 @@ const AboutCard = ({ item }) => {
                 </div>
               )}
             </div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2">{item.title}</h3>
-            <p className="text-sm sm:text-base text-white/70 mb-2">
-              {item.description}
-            </p>
-            <div className="text-lg sm:text-xl font-bold text-blue-400 mb-1">
-              {item.content}
+
+            {/* Book Info */}
+            <div className="flex flex-col items-center text-center flex-grow justify-center">
+              <h3 className="text-lg sm:text-xl font-bold mb-2">
+                {item.title}
+              </h3>
+              <p className="text-sm sm:text-base text-white/70 mb-2">
+                {item.description}
+              </p>
+              <div className="text-lg sm:text-xl font-bold text-blue-400 mb-1">
+                {item.content}
+              </div>
+              {item.author && (
+                <div className="text-sm text-white/60">by {item.author}</div>
+              )}
             </div>
-            {item.author && (
-              <div className="text-sm text-white/60">by {item.author}</div>
-            )}
           </div>
         );
 
