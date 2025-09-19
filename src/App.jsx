@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ExperienceSection from './components/ExperienceSection';
 import ContactSection from './components/ContactSection';
+import StarfieldBackground from './components/StarfieldBackground';
 
 // Smooth scroll function
 const scrollToSection = (sectionId) => {
@@ -93,21 +94,28 @@ function App() {
   }, []);
 
   return (
-    <div className="scroll-optimized min-h-screen bg-gradient-to-t from-[#0a0a0a] via-[#0e0e0e] to-[#121212]">
-      {/* Navbar */}
-      <Navbar
-        isScrolled={isScrolled}
-        activeSection={activeSection}
-        scrollToSection={scrollToSection}
-        scrollToExperience={scrollToExperience}
-        setActiveSection={setActiveSection}
-      />
-      {/* Hero Section */}
-      <HeroSection scrollToExperience={scrollToExperience} />
-      {/* Experience Section */}
-      <ExperienceSection hasNavigatedToExperience={hasNavigatedToExperience} />
-      {/* Contact Section */}
-      <ContactSection />
+    <div className="scroll-optimized min-h-screen bg-black relative">
+      {/* Animated Starfield Background */}
+      <StarfieldBackground />
+      {/* Main Content Wrapper */}
+      <div className="relative z-10">
+        {/* Navbar */}
+        <Navbar
+          isScrolled={isScrolled}
+          activeSection={activeSection}
+          scrollToSection={scrollToSection}
+          scrollToExperience={scrollToExperience}
+          setActiveSection={setActiveSection}
+        />
+        {/* Hero Section */}
+        <HeroSection scrollToExperience={scrollToExperience} />
+        {/* Experience Section */}
+        <ExperienceSection
+          hasNavigatedToExperience={hasNavigatedToExperience}
+        />
+        {/* Contact Section */}
+        <ContactSection />
+      </div>
     </div>
   );
 }
