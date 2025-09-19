@@ -10,16 +10,16 @@
     "colorTheme": {
       "bg": "bg-blue-500/20",
       "bgHover": "group-hover:bg-blue-500/30",
-      "border": "border-blue-400/30",
+      "border": "border-white/20",
       "borderHover": "hover:border-blue-400/50",
       "shadow": "hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]",
-      "buttonBg": "bg-blue-500/20",
-      "buttonBgHover": "hover:bg-blue-500/30",
-      "buttonBorder": "border-blue-400/30",
+      "buttonBg": "bg-white/10",
+      "buttonBgHover": "hover:bg-blue-500/20",
+      "buttonBorder": "border-white/30",
       "buttonBorderHover": "hover:border-blue-400/50",
       "iconColor": "text-blue-400",
-      "buttonTextColor": "text-blue-300",
-      "buttonTextColorHover": "hover:text-blue-200"
+      "buttonTextColor": "text-white",
+      "buttonTextColorHover": "hover:text-blue-300"
     }
   },
   {
@@ -36,12 +36,12 @@
       "border": "border-white/20",
       "borderHover": "hover:border-blue-500/50",
       "shadow": "hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]",
-      "buttonBg": "bg-blue-600/20",
-      "buttonBgHover": "hover:bg-blue-600/30",
-      "buttonBorder": "border-blue-500/30",
+      "buttonBg": "bg-white/10",
+      "buttonBgHover": "hover:bg-blue-500/20",
+      "buttonBorder": "border-white/30",
       "buttonBorderHover": "hover:border-blue-500/50",
       "iconColor": "text-blue-500",
-      "buttonTextColor": "text-blue-400",
+      "buttonTextColor": "text-white",
       "buttonTextColorHover": "hover:text-blue-300"
     }
   },
@@ -57,15 +57,15 @@
       "bg": "bg-gray-600/20",
       "bgHover": "group-hover:bg-gray-600/30",
       "border": "border-white/20",
-      "borderHover": "hover:border-gray-400/50",
-      "shadow": "hover:shadow-[0_0_30px_rgba(107,114,128,0.3)]",
-      "buttonBg": "bg-gray-600/20",
-      "buttonBgHover": "hover:bg-gray-600/30",
-      "buttonBorder": "border-gray-400/30",
-      "buttonBorderHover": "hover:border-gray-400/50",
-      "iconColor": "text-gray-400",
-      "buttonTextColor": "text-gray-300",
-      "buttonTextColorHover": "hover:text-gray-200"
+      "borderHover": "hover:border-blue-400/50",
+      "shadow": "hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]",
+      "buttonBg": "bg-white/10",
+      "buttonBgHover": "hover:bg-blue-500/20",
+      "buttonBorder": "border-white/30",
+      "buttonBorderHover": "hover:border-blue-400/50",
+      "iconColor": "text-blue-400",
+      "buttonTextColor": "text-white",
+      "buttonTextColorHover": "hover:text-blue-300"
     }
   }
 ]
