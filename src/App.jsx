@@ -3,6 +3,7 @@ import './index.css';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ExperienceSection from './components/ExperienceSection';
+import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
 import StarfieldBackground from './components/StarfieldBackground';
 
@@ -54,7 +55,7 @@ function App() {
       const scrollThreshold = window.innerHeight * 0.1;
       setIsScrolled(window.scrollY > scrollThreshold);
 
-      const sections = ['intro', 'experience', 'contact'];
+      const sections = ['intro', 'experience', 'about', 'contact'];
       const scrollPosition = window.scrollY + scrollThreshold / 2;
 
       for (const section of sections) {
@@ -113,6 +114,8 @@ function App() {
         <ExperienceSection
           hasNavigatedToExperience={hasNavigatedToExperience}
         />
+        {/* About Section */}
+        <AboutSection />
         {/* Contact Section */}
         <ContactSection />
       </div>

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "location",
+    "type": "location",
+    "title": "Current Location",
+    "description": "Based in Toronto, Ontario 🇨🇦",
+    "content": "Toronto, ON"
+  },
+  {
+    "id": "book",
+    "type": "book",
+    "title": "My Reads",
+    "description": "Explore what I've been reading recently.",
+    "content": "The Social Skills Guidebook",
+    "author": "Chris MacLeod",
+    "image": "/assets/book-cover-placeholder.jpg"
+  },
+  {
+    "id": "project",
+    "type": "project",
+    "title": "Current Project",
+    "description": "What I'm working on lately.",
+    "content": "Portfolio Website",
+    "image": "/assets/project-placeholder.jpg"
+  },
+  {
+    "id": "toolbox",
+    "type": "toolbox",
+    "title": "My Toolbox",
+    "description": "Explore the technologies and tools I use to craft exceptional digital experiences.",
+    "tools": [
+      { "name": "HTML5", "icon": "🌐" },
+      { "name": "CSS3", "icon": "🎨" },
+      { "name": "JavaScript", "icon": "⚡" },
+      { "name": "React", "icon": "⚛️" },
+      { "name": "Tailwind", "icon": "💨" },
+      { "name": "Node.js", "icon": "🟢" },
+      { "name": "Python", "icon": "🐍" },
+      { "name": "MySQL", "icon": "🗄️" },
+      { "name": "Git", "icon": "📝" },
+      { "name": "GitHub", "icon": "🐙" }
+    ]
+  },
+  {
+    "id": "education",
+    "type": "education",
+    "title": "Education & Resume",
+    "description": "Learn about my educational background and download my resume.",
+    "buttonText": "Download Resume"
+  }
+]
