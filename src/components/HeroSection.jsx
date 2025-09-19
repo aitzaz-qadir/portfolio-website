@@ -14,7 +14,7 @@ const HeroSection = ({ scrollToExperience }) => {
         className="w-32 h-32 sm:w-40 sm:h-40 md:w-45 md:h-45 overflow-hidden rounded-full mb-4 sm:mb-6 md:mb-7 shadow-[0_0_20px_rgba(255,255,255,0.1)] border-2 border-white/10"
       >
         <img
-          src="https://avatars.githubusercontent.com/u/71240832?v=4"
+          src="/assets/profile-pic.jpg"
           alt="Profile"
           className="w-full h-full object-cover object-[50%_10%]"
           loading="eager"

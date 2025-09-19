@@ -6,7 +6,7 @@
     "description": "Based in Toronto, Ontario 🇨🇦",
     "content": "Toronto, ON",
     "mapImage": "/assets/toronto-map.png",
-    "profileImage": "/assets/profilePic.JPG"
+    "profileImage": "/assets/profile-pic.jpg"
   },
   {
     "id": "book",
@@ -15,7 +15,7 @@
     "description": "Explore what I've been reading recently.",
     "content": "The Social Skills Guidebook",
     "author": "Chris MacLeod",
-    "image": "/assets/social-skills-guidebook.png"
+    "image": "/assets/social-skills-guide.png"
   },
   {
     "id": "project",
