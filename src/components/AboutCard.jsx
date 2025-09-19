@@ -126,7 +126,7 @@ const AboutCard = ({ item }) => {
       case 'project':
         return (
           <div className="flex flex-col items-center text-center h-full">
-            <div className="w-full h-32 sm:h-36 lg:h-40 mb-3 sm:mb-4 rounded-lg overflow-hidden shadow-lg bg-neutral-800/50">
+            <div className="w-full h-40 sm:h-44 lg:h-48 mb-3 sm:mb-4 rounded-lg overflow-hidden shadow-lg bg-neutral-800/50">
               {item.image ? (
                 <img
                   src={item.image}
