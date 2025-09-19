@@ -4,7 +4,9 @@
     "type": "location",
     "title": "Current Location",
     "description": "Based in Toronto, Ontario 🇨🇦",
-    "content": "Toronto, ON"
+    "content": "Toronto, ON",
+    "mapImage": "/assets/toronto-map.png",
+    "profileImage": "/assets/profilePic.JPG"
   },
   {
     "id": "book",

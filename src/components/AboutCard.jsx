@@ -8,26 +8,75 @@ const AboutCard = ({ item }) => {
     switch (item.type) {
       case 'location':
         return (
-          <div className="flex flex-col items-center justify-center text-center h-full">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-blue-500/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-              <svg
-                className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-blue-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                  clipRule="evenodd"
+          <div className="flex flex-col h-full">
+            {/* Map Container */}
+            <div className="relative w-full h-40 sm:h-44 lg:h-48 mb-3 sm:mb-4 rounded-lg overflow-hidden">
+              {item.mapImage ? (
+                <img
+                  src={item.mapImage}
+                  alt="Toronto Map"
+                  className="h-full w-full object-cover"
                 />
-              </svg>
+              ) : (
+                // Fallback map placeholder
+                <div className="h-full w-full bg-gradient-to-br from-blue-900/50 to-blue-700/50 flex items-center justify-center">
+                  <svg
+                    className="w-12 h-12 text-blue-400/50"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+              )}
+
+              {/* Animated Location Pin with Profile Picture */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 sm:w-14 sm:h-14 rounded-full outline-2 sm:outline-3 outline-blue-400 flex justify-center items-center">
+                {/* Background circle */}
+                <div className="absolute inset-0 rounded-full bg-blue-400 -z-10"></div>
+
+                {/* Animated pulse ring */}
+                <div
+                  className="absolute inset-0 rounded-full bg-blue-400 -z-20 animate-ping"
+                  style={{ animationDuration: '2s' }}
+                ></div>
+
+                {/* Profile Picture */}
+                {item.profileImage ? (
+                  <img
+                    src={item.profileImage}
+                    alt="Profile"
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-white"
+                  />
+                ) : (
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-500 flex items-center justify-center">
+                    <svg
+                      className="w-6 h-6 sm:w-7 sm:h-7 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                  </div>
+                )}
+              </div>
             </div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2">{item.title}</h3>
-            <p className="text-sm sm:text-base text-white/70 mb-3">
-              {item.description}
-            </p>
-            <div className="text-lg sm:text-xl font-bold text-blue-400">
-              {item.content}
+
+            {/* Location Info */}
+            <div className="flex flex-col items-center text-center flex-grow justify-center">
+              <h3 className="text-lg sm:text-xl font-bold mb-2">
+                {item.title}
+              </h3>
+              <p className="text-sm sm:text-base text-white/70 mb-2">
+                {item.description}
+              </p>
+              <div className="text-lg sm:text-xl font-bold text-blue-400">
+                {item.content}
+              </div>
             </div>
           </div>
         );
@@ -200,6 +249,8 @@ AboutCard.propTypes = {
     content: PropTypes.string,
     image: PropTypes.string,
     author: PropTypes.string,
+    mapImage: PropTypes.string,
+    profileImage: PropTypes.string,
     buttonText: PropTypes.string,
     tools: PropTypes.arrayOf(
       PropTypes.shape({
