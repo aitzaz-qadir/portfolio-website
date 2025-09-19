@@ -6,7 +6,7 @@ const HeroSection = ({ scrollToExperience }) => {
   return (
     <div
       id="intro"
-      className="relative min-h-screen flex flex-col items-center justify-center text-white px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex flex-col items-center justify-center text-white px-4 sm:px-6 lg:px-8 pt-20"
     >
       {/* Profile picture */}
       <div
