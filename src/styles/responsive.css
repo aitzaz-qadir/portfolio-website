@@ -136,6 +136,14 @@
   }
 }
 
+/* Prevent navbar collision on short viewports */
+@media (max-height: 600px) {
+  #intro {
+    justify-content: flex-start !important;
+    padding-top: 6rem !important;
+  }
+}
+
 /* Touch-friendly interactive elements */
 @media (hover: none) and (pointer: coarse) {
   .touch-friendly {
