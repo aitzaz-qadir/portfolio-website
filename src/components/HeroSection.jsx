@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { IconArrowDown } from '@tabler/icons-react';
 
 // Hero section with profile, status, introduction text, and scroll button
 const HeroSection = ({ scrollToExperience }) => {
@@ -59,20 +60,7 @@ const HeroSection = ({ scrollToExperience }) => {
       >
         <span className="flex items-center gap-2 relative z-10">
           <span className="text-sm sm:text-base">Scroll to Explore</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            className="w-4 h-4 sm:w-5 sm:h-5 animate-bounce-up-down"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
-            />
-          </svg>
+          <IconArrowDown className="w-4 h-4 sm:w-5 sm:h-5 animate-bounce-up-down" />
         </span>
       </button>
     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import AboutCard from './AboutCard';
 import aboutData from '../data/about.json';
+import { IconUser } from '@tabler/icons-react';
 
 // About section that displays various glimpses into my world
 const AboutSection = () => {
@@ -13,13 +14,7 @@ const AboutSection = () => {
       <div className="text-center mb-8 sm:mb-12 lg:mb-16">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold drop-shadow-lg mb-4 sm:mb-6 text-center px-2 flex items-center justify-center gap-3">
           About Me
-          <svg
-            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-blue-400"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-          </svg>
+          <IconUser className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-blue-400" />
         </h1>
       </div>
 

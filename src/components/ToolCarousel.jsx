@@ -19,7 +19,7 @@ const ToolCarousel = ({ tools, direction = 'left', duration = '40s' }) => {
               className="flex items-center bg-white/10 rounded-lg px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base flex-shrink-0"
             >
               <span className="text-blue-400 mr-2 sm:mr-3">{tool.icon}</span>
-              <span>{tool.name}</span>
+              <span className="font-semibold">{tool.name}</span>
             </div>
           ))}
       </div>
@@ -30,7 +30,8 @@ const ToolCarousel = ({ tools, direction = 'left', duration = '40s' }) => {
 ToolCarousel.propTypes = {
   tools: PropTypes.arrayOf(
     PropTypes.shape({
-      icon: PropTypes.string.isRequired,
+      icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+        .isRequired,
       name: PropTypes.string.isRequired,
     })
   ).isRequired,
