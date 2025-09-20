@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ToolCarousel from './ToolCarousel';
+import BookCycler from './BookCycler';
 import {
   IconBrandHtml5,
   IconBrandCss3,
@@ -14,7 +15,6 @@ import {
   IconBrandGithub,
   IconMapPin,
   IconUser,
-  IconBook,
   IconCode,
   IconSettings,
   IconSchool,
@@ -108,38 +108,11 @@ const AboutCard = ({ item }) => {
 
       case 'book':
         return (
-          <div className="flex flex-col h-full">
-            {/* Book Cover Container - matching map window size */}
-            <div className="relative w-full h-40 sm:h-44 lg:h-48 mb-3 sm:mb-4 rounded-lg overflow-hidden shadow-lg bg-neutral-800/50">
-              {item.image ? (
-                <img
-                  src={item.image}
-                  alt={item.content}
-                  className="w-full h-full object-cover object-top"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <IconBook className="w-8 h-8 text-white/50" />
-                </div>
-              )}
-            </div>
-
-            {/* Book Info */}
-            <div className="flex flex-col items-center text-center flex-grow justify-center">
-              <h3 className="text-lg sm:text-xl font-bold mb-2">
-                {item.title}
-              </h3>
-              <p className="text-sm sm:text-base text-white/70 mb-2">
-                {item.description}
-              </p>
-              <div className="text-lg sm:text-xl font-bold text-blue-400 mb-1">
-                {item.content}
-              </div>
-              {item.author && (
-                <div className="text-sm text-white/60">by {item.author}</div>
-              )}
-            </div>
-          </div>
+          <BookCycler
+            books={item.books || []}
+            title={item.title}
+            description={item.description}
+          />
         );
 
       case 'project':
@@ -271,6 +244,13 @@ AboutCard.propTypes = {
     profileImage: PropTypes.string,
     buttonText: PropTypes.string,
     downloadUrl: PropTypes.string,
+    books: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        author: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+      })
+    ),
     tools: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,

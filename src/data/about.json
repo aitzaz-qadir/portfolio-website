@@ -13,9 +13,28 @@
     "type": "book",
     "title": "My Reads",
     "description": "Explore what I've been reading recently.",
-    "content": "The Social Skills Guidebook",
-    "author": "Chris MacLeod",
-    "image": "/assets/social-skills-guide.png"
+    "books": [
+      {
+        "title": "Can't Hurt Me",
+        "author": "David Goggins",
+        "image": "/assets/books/cant-hurt-me.png"
+      },
+      {
+        "title": "The Daily Stoic",
+        "author": "Ryan Holiday",
+        "image": "/assets/books/daily-stoic.png"
+      },
+      {
+        "title": "Meditations",
+        "author": "Marcus Aurelius",
+        "image": "/assets/books/meditations.png"
+      },
+      {
+        "title": "The Social Skills Guidebook",
+        "author": "Chris MacLeod",
+        "image": "/assets/books/social-skills-guide.png"
+      }
+    ]
   },
   {
     "id": "project",
