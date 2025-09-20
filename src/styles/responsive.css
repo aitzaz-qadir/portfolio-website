@@ -143,12 +143,9 @@
     padding-top: 6rem !important;
   }
 
-  /* Ensure scroll button stays properly positioned */
+  /* Hide scroll button on short viewports */
   .scroll-button {
-    position: fixed !important;
-    bottom: 1.5rem !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    display: none !important;
   }
 }
 
