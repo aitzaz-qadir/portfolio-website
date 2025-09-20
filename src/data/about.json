@@ -48,6 +48,7 @@
     "type": "education",
     "title": "Education & Resume",
     "description": "Learn about my educational background and download my resume.",
-    "buttonText": "Download Resume"
+    "buttonText": "Download Resume",
+    "downloadUrl": "/assets/resume.pdf"
   }
 ]

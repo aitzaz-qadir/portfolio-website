@@ -217,9 +217,19 @@ const AboutCard = ({ item }) => {
             <p className="text-sm sm:text-base text-white/70 mb-3 flex-grow">
               {item.description}
             </p>
-            <button className="touch-friendly px-3 sm:px-4 py-2 bg-white/10 border border-white/30 rounded-lg hover:bg-blue-500/20 hover:border-blue-400/50 transition-all duration-300 text-white hover:text-blue-300 text-sm sm:text-base font-medium focus-visible:focus-visible">
-              {item.buttonText || 'Download Resume'}
-            </button>
+            {item.downloadUrl ? (
+              <a
+                href={item.downloadUrl}
+                download
+                className="touch-friendly px-3 sm:px-4 py-2 bg-white/10 border border-white/30 rounded-lg hover:bg-blue-500/20 hover:border-blue-400/50 transition-all duration-300 text-white hover:text-blue-300 text-sm sm:text-base font-medium focus-visible:focus-visible inline-block"
+              >
+                {item.buttonText || 'Download Resume'}
+              </a>
+            ) : (
+              <button className="touch-friendly px-3 sm:px-4 py-2 bg-white/10 border border-white/30 rounded-lg hover:bg-blue-500/20 hover:border-blue-400/50 transition-all duration-300 text-white hover:text-blue-300 text-sm sm:text-base font-medium focus-visible:focus-visible">
+                {item.buttonText || 'Download Resume'}
+              </button>
+            )}
           </div>
         );
 
@@ -260,6 +270,7 @@ AboutCard.propTypes = {
     mapImage: PropTypes.string,
     profileImage: PropTypes.string,
     buttonText: PropTypes.string,
+    downloadUrl: PropTypes.string,
     tools: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
