@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ToolCarousel from './ToolCarousel';
 
 // Reusable component for displaying different aspects of my life/work
 const AboutCard = ({ item }) => {
@@ -183,19 +184,18 @@ const AboutCard = ({ item }) => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-wrap gap-2 sm:gap-3 flex-grow">
-              {item.tools &&
-                item.tools.map((tool, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center bg-white/10 rounded-lg px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm"
-                  >
-                    <span className="text-blue-400 mr-1 sm:mr-2">
-                      {tool.icon}
-                    </span>
-                    <span>{tool.name}</span>
-                  </div>
-                ))}
+            {/* Carousel Container */}
+            <div className="flex flex-col gap-4 flex-grow overflow-hidden">
+              <ToolCarousel
+                tools={item.tools}
+                direction="left"
+                duration="40s"
+              />
+              <ToolCarousel
+                tools={item.tools}
+                direction="right"
+                duration="35s"
+              />
             </div>
           </div>
         );

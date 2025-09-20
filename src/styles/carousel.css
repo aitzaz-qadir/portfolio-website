@@ -1,0 +1,58 @@
+/* Carousel Animations */
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-moveLeft {
+  animation: moveLeft var(--animation-duration, 40s) linear infinite;
+}
+
+.animate-moveRight {
+  animation: moveRight var(--animation-duration, 40s) linear infinite;
+}
+
+/* Carousel container styles */
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  flex: none;
+  padding: 0.125rem 0;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.carousel-item {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .carousel-item {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
