@@ -26,6 +26,14 @@
     "image": "/assets/portfolio-picture.png"
   },
   {
+    "id": "education",
+    "type": "education",
+    "title": "Education & Resume",
+    "description": "Learn about my educational background and download my resume.",
+    "buttonText": "Download Resume",
+    "downloadUrl": "/assets/resume.pdf"
+  },
+  {
     "id": "toolbox",
     "type": "toolbox",
     "title": "My Toolbox",
@@ -42,13 +50,5 @@
       { "name": "Git", "icon": "📝" },
       { "name": "GitHub", "icon": "🐙" }
     ]
-  },
-  {
-    "id": "education",
-    "type": "education",
-    "title": "Education & Resume",
-    "description": "Learn about my educational background and download my resume.",
-    "buttonText": "Download Resume",
-    "downloadUrl": "/assets/resume.pdf"
   }
 ]

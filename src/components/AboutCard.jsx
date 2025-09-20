@@ -172,9 +172,9 @@ const AboutCard = ({ item }) => {
         return (
           <div className="flex flex-col h-full">
             <div className="flex items-center mb-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 group">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 group flex-shrink-0">
                 <IconSettings
-                  className="w-6 h-6 sm:w-7 sm:h-7 text-blue-400 group-hover:animate-spin transition-transform duration-300"
+                  className="w-6 h-6 sm:w-7 sm:h-7 text-blue-400 group-hover:animate-spin transition-transform duration-300 flex-shrink-0"
                   stroke={2.5}
                   style={{
                     animationDuration: '3s',
