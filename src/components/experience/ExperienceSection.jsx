@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ExperienceCard from './ExperienceCard';
 
 // Importing experience data from JSON file
-import experiencesData from '../data/experiences.json';
+import experiencesData from '../../data/experiences.json';
 
 // Experience section that displays all job experiences with timeline and scroll-triggered animations
 const ExperienceSection = ({ hasNavigatedToExperience }) => {

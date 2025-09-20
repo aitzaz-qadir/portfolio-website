@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import './index.css';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import ExperienceSection from './components/ExperienceSection';
-import AboutSection from './components/AboutSection';
-import ContactSection from './components/ContactSection';
-import StarfieldBackground from './components/StarfieldBackground';
+import Navbar from './components/layout/Navbar';
+import HeroSection from './components/hero/HeroSection';
+import ExperienceSection from './components/experience/ExperienceSection';
+import AboutSection from './components/about/AboutSection';
+import ContactSection from './components/contact/ContactSection';
+import StarfieldBackground from './components/hero/StarfieldBackground';
 
 // Smooth scroll function
 const scrollToSection = (sectionId) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactCard from './ContactCard';
-import contactsData from '../data/contacts.json';
+import contactsData from '../../data/contacts.json';
 
 // Contact section that displays all contact methods and additional info
 const ContactSection = () => {
