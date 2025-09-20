@@ -16,9 +16,9 @@ const ToolCarousel = ({ tools, direction = 'left', duration = '40s' }) => {
           tools.concat(tools).map((tool, index) => (
             <div
               key={`${direction}-${index}`}
-              className="flex items-center bg-white/10 rounded-lg px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm flex-shrink-0"
+              className="flex items-center bg-white/10 rounded-lg px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base flex-shrink-0"
             >
-              <span className="text-blue-400 mr-1 sm:mr-2">{tool.icon}</span>
+              <span className="text-blue-400 mr-2 sm:mr-3">{tool.icon}</span>
               <span>{tool.name}</span>
             </div>
           ))}

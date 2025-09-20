@@ -185,7 +185,7 @@ const AboutCard = ({ item }) => {
               </div>
             </div>
             {/* Carousel Container */}
-            <div className="flex flex-col gap-4 flex-grow overflow-hidden">
+            <div className="flex flex-col gap-4 flex-grow overflow-hidden justify-center">
               <ToolCarousel
                 tools={item.tools}
                 direction="left"
