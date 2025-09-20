@@ -10,17 +10,17 @@ import {
 const ContactCard = ({ contact }) => {
   // Icon components for different contact methods
   const renderIcon = (iconType) => {
-    const iconSize = 'w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8';
-    const iconClassName = `${iconSize} ${contact.colorTheme.iconColor}`;
+    const iconSize = 'w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10';
+    const iconClassName = `${iconSize} ${contact.colorTheme.iconColor} hover:animate-spin transition-transform duration-300`;
 
     // Return appropriate Tabler icon based on iconType
     switch (iconType) {
       case 'email':
-        return <IconMail className={iconClassName} />;
+        return <IconMail className={iconClassName} stroke={2.5} />;
       case 'linkedin':
-        return <IconBrandLinkedin className={iconClassName} />;
+        return <IconBrandLinkedin className={iconClassName} stroke={2.5} />;
       case 'github':
-        return <IconBrandGithub className={iconClassName} />;
+        return <IconBrandGithub className={iconClassName} stroke={2.5} />;
       default:
         return null;
     }

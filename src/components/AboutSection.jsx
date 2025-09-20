@@ -14,7 +14,10 @@ const AboutSection = () => {
       <div className="text-center mb-8 sm:mb-12 lg:mb-16">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold drop-shadow-lg mb-4 sm:mb-6 text-center px-2 flex items-center justify-center gap-3">
           About Me
-          <IconUser className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-blue-400" />
+          <IconUser
+            className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-blue-400 font-bold"
+            stroke={2.5}
+          />
         </h1>
       </div>
 

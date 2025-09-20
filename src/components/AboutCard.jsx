@@ -172,8 +172,14 @@ const AboutCard = ({ item }) => {
         return (
           <div className="flex flex-col h-full">
             <div className="flex items-center mb-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-3">
-                <IconSettings className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500/20 rounded-full flex items-center justify-center mr-3 group">
+                <IconSettings
+                  className="w-6 h-6 sm:w-7 sm:h-7 text-blue-400 group-hover:animate-spin transition-transform duration-300"
+                  stroke={2.5}
+                  style={{
+                    animationDuration: '3s',
+                  }}
+                />
               </div>
               <div>
                 <h3 className="text-lg sm:text-xl font-bold">{item.title}</h3>
@@ -201,8 +207,11 @@ const AboutCard = ({ item }) => {
       case 'education':
         return (
           <div className="flex flex-col items-center text-center h-full">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-blue-500/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-              <IconSchool className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-blue-400" />
+            <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-blue-500/20 rounded-full flex items-center justify-center mb-3 sm:mb-4 group">
+              <IconSchool
+                className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-blue-400 group-hover:animate-spin transition-transform duration-300"
+                stroke={2.5}
+              />
             </div>
             <h3 className="text-lg sm:text-xl font-bold mb-2">{item.title}</h3>
             <p className="text-sm sm:text-base text-white/70 mb-3 flex-grow">
