@@ -71,6 +71,44 @@
   }
 }
 
+/* Comet Animations */
+@keyframes comet-shoot {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(var(--comet-distance), var(--comet-distance-y), 0)
+      scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes comet-trail {
+  0% {
+    transform: translateY(-50%) rotate(calc(var(--comet-angle, 0deg) + 180deg))
+      scaleX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-50%) rotate(calc(var(--comet-angle, 0deg) + 180deg))
+      scaleX(1);
+    opacity: 0;
+  }
+}
+
 .starfield-container {
   position: fixed;
   top: 0;
@@ -139,6 +177,48 @@
     0 0 6px rgba(79, 70, 229, 0.6),
     0 0 12px rgba(79, 70, 229, 0.3),
     0 0 18px rgba(79, 70, 229, 0.1);
+}
+
+/* Comet Styles */
+.comet {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    #8bb5ff 50%,
+    transparent 100%
+  );
+  animation: comet-shoot 2s ease-out forwards;
+  will-change: transform, opacity;
+  z-index: 1;
+  --comet-distance: 200px;
+  --comet-distance-y: 100px;
+}
+
+.comet::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(139, 181, 255, 0.6) 30%,
+    transparent 100%
+  );
+  transform: translateY(-50%) rotate(calc(var(--comet-angle, 0deg) + 180deg))
+    scaleX(0);
+  transform-origin: left center;
+  animation: comet-trail 2s ease-out forwards;
+  border-radius: 1px;
+}
+
+.star.comet-hidden {
+  opacity: 0 !important;
+  animation: none !important;
 }
 
 /* Responsive adjustments for mobile devices */
