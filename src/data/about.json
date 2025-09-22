@@ -61,13 +61,30 @@
       { "name": "HTML5", "icon": "🌐" },
       { "name": "CSS3", "icon": "🎨" },
       { "name": "JavaScript", "icon": "⚡" },
-      { "name": "React", "icon": "⚛️" },
-      { "name": "Tailwind", "icon": "💨" },
-      { "name": "Node.js", "icon": "🟢" },
+      { "name": "Java", "icon": "☕" },
+      { "name": "C", "icon": "🔧" },
+      { "name": "C++", "icon": "⚙️" },
+      { "name": "C#", "icon": "💎" },
       { "name": "Python", "icon": "🐍" },
-      { "name": "MySQL", "icon": "🗄️" },
+      { "name": "React", "icon": "⚛️" },
+      { "name": "R", "icon": "📊" },
+      { "name": "Kotlin", "icon": "🎯" },
+      { "name": "Tailwind", "icon": "💨" }
+    ],
+    "toolsSecond": [
       { "name": "Git", "icon": "📝" },
-      { "name": "GitHub", "icon": "🐙" }
+      { "name": "GitHub", "icon": "🐙" },
+      { "name": "SQL", "icon": "🗄️" },
+      { "name": "Unity", "icon": "🎮" },
+      { "name": "IntelliJ", "icon": "💡" },
+      { "name": "Visual Studio", "icon": "🔵" },
+      { "name": "JIRA", "icon": "📋" },
+      { "name": "Node.js", "icon": "🟢" },
+      { "name": "Vite", "icon": "⚡" },
+      { "name": "Linux", "icon": "�" },
+      { "name": "Docker", "icon": "�" },
+      { "name": "Android Studio", "icon": "🤖" },
+      { "name": "Figma", "icon": "🎨" }
     ]
   }
 ]

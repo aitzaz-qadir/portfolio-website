@@ -18,6 +18,21 @@ import {
   IconCode,
   IconSettings,
   IconSchool,
+  IconBrandCpp,
+  IconBrandKotlin,
+  IconBrandUnity,
+  IconBrandVisualStudio,
+  IconBrandDocker,
+  IconBrandAndroid,
+  IconBrandFigma,
+  IconTerminal2,
+  IconBrandVite,
+  IconBulb,
+  IconClipboardList,
+  IconTerminal,
+  IconFileCode,
+  IconChartBar,
+  IconDiamond,
 } from '@tabler/icons-react';
 
 // Icon mapping for tools
@@ -25,13 +40,28 @@ const iconMap = {
   HTML5: <IconBrandHtml5 size={28} />,
   CSS3: <IconBrandCss3 size={28} />,
   JavaScript: <IconBrandJavascript size={28} />,
-  React: <IconBrandReact size={28} />,
-  Tailwind: <IconWind size={28} />,
-  'Node.js': <IconBrandNodejs size={28} />,
+  Java: <IconFileCode size={28} />,
+  C: <IconTerminal size={28} />,
+  'C++': <IconBrandCpp size={28} />,
+  'C#': <IconDiamond size={28} />,
   Python: <IconBrandPython size={28} />,
-  MySQL: <IconDatabase size={28} />,
+  React: <IconBrandReact size={28} />,
+  R: <IconChartBar size={28} />,
+  Kotlin: <IconBrandKotlin size={28} />,
+  Tailwind: <IconWind size={28} />,
   Git: <IconBrandGit size={28} />,
   GitHub: <IconBrandGithub size={28} />,
+  SQL: <IconDatabase size={28} />,
+  Unity: <IconBrandUnity size={28} />,
+  IntelliJ: <IconBulb size={28} />,
+  'Visual Studio': <IconBrandVisualStudio size={28} />,
+  JIRA: <IconClipboardList size={28} />,
+  'Node.js': <IconBrandNodejs size={28} />,
+  Vite: <IconBrandVite size={28} />,
+  Linux: <IconTerminal2 size={28} />,
+  Docker: <IconBrandDocker size={28} />,
+  'Android Studio': <IconBrandAndroid size={28} />,
+  Figma: <IconBrandFigma size={28} />,
 };
 
 // Transform tools to use Tabler icons
@@ -166,12 +196,12 @@ const AboutCard = ({ item }) => {
               <ToolCarousel
                 tools={transformTools(item.tools)}
                 direction="left"
-                duration="40s"
+                duration="38s"
               />
               <ToolCarousel
-                tools={transformTools(item.tools)}
+                tools={transformTools(item.toolsSecond || item.tools)}
                 direction="right"
-                duration="35s"
+                duration="33s"
               />
             </div>
           </div>
@@ -252,6 +282,12 @@ AboutCard.propTypes = {
       })
     ),
     tools: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired,
+      })
+    ),
+    toolsSecond: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
         icon: PropTypes.string.isRequired,
