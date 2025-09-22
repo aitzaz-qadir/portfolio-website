@@ -15,7 +15,28 @@ const ProjectCard = ({ project }) => {
   } = project;
 
   return (
-    <div className="group bg-neutral-900/50 backdrop-blur-lg border border-white/10 rounded-xl p-4 sm:p-6 hover:border-white/20 hover:bg-neutral-900/70 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/10">
+    <div className="group bg-neutral-900/50 backdrop-blur-lg border border-white/10 rounded-xl p-4 sm:p-6 hover:border-white/20 hover:bg-neutral-900/70 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/10 relative overflow-hidden">
+      {/* Under Construction Overlay for planned projects */}
+      {status === 'planned' && (
+        <div className="absolute inset-0 z-10 rounded-xl overflow-hidden">
+          {/* Full card diagonal stripes overlay */}
+          <div
+            className="absolute inset-0 opacity-20"
+            style={{
+              background:
+                'repeating-linear-gradient(45deg, #facc15 0px, #facc15 20px, #000000 20px, #000000 40px)',
+            }}
+          ></div>
+          {/* Center construction text */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="bg-yellow-400 text-black px-4 py-2 rounded-lg transform -rotate-12 shadow-lg border-2 border-black">
+              <span className="font-bold text-sm tracking-wide">
+                🚧 UNDER CONSTRUCTION 🚧
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Project Image */}
       {imageUrl && (
         <div className="relative mb-4 overflow-hidden rounded-lg">
