@@ -221,11 +221,23 @@
   animation: none !important;
 }
 
+.comet-inactive {
+  opacity: 0 !important;
+  animation: none !important;
+  pointer-events: none;
+}
+
+.comet-inactive,
+.comet-inactive::before {
+  animation: none !important;
+}
+
 /* Responsive adjustments for mobile devices */
 @media (max-width: 768px) {
-  /* Hide every 3rd star on tablets */
+  /* Hide every 3rd star on tablets - use opacity to maintain layout */
   .star:nth-child(3n + 1) {
-    display: none;
+    opacity: 0 !important;
+    animation: none !important;
   }
 
   /* Reduce float distance for smaller screens */
@@ -247,9 +259,10 @@
 }
 
 @media (max-width: 480px) {
-  /* Hide even more stars on mobile phones */
+  /* Hide even more stars on mobile phones - use opacity to maintain layout */
   .star:nth-child(2n) {
-    display: none;
+    opacity: 0 !important;
+    animation: none !important;
   }
 
   /* Further reduce float distance */

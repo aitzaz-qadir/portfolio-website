@@ -21,8 +21,8 @@ const StarfieldBackground = () => {
         floatDelay: Math.random() * 15,
         opacity: Math.random() * 0.6 + 0.4, // Base opacity 0.4-1
         // Comet properties
-        cometChance: Math.random() * 0.06 + 0.02, // 2-8% chance to become comet
-        nextCometTime: Math.random() * 20000 + 15000, // 15-35 seconds until first comet
+        cometChance: Math.random() * 0.1 + 0.2, // 20-30% chance to become comet
+        nextCometTime: Math.random() * 10000 + 5000, // 5-15 seconds until first comet (staggered)
         cometDirection: Math.random() * 360, // Random direction in degrees
       });
     }
@@ -41,6 +41,22 @@ const StarfieldBackground = () => {
     const intervals = stars.map((star) => {
       return setTimeout(() => {
         const triggerComet = () => {
+          // Skip comet for stars that are hidden on mobile/tablet
+          const isHiddenOnTablet = (star.id + 1) % 3 === 1; // 3n + 1 pattern
+          const isHiddenOnMobile = star.id % 2 === 0; // 2n pattern
+
+          // Check screen size and skip if star would be hidden
+          const screenWidth = window.innerWidth;
+          if (
+            (screenWidth <= 768 && isHiddenOnTablet) ||
+            (screenWidth <= 480 && isHiddenOnMobile)
+          ) {
+            // Schedule next potential comet without triggering
+            const nextInterval = Math.random() * 30000 + 30000; // 30-60 seconds
+            setTimeout(triggerComet, nextInterval);
+            return;
+          }
+
           if (Math.random() < star.cometChance) {
             // Activate comet
             setCometStates((prev) => ({
@@ -49,12 +65,15 @@ const StarfieldBackground = () => {
             }));
 
             // Deactivate comet after 2 seconds and schedule next one
-            setTimeout(() => {
-              setCometStates((prev) => ({
-                ...prev,
-                [star.id]: { active: false, startTime: null },
-              }));
-            }, 2000);
+            setTimeout(
+              () => {
+                setCometStates((prev) => ({
+                  ...prev,
+                  [star.id]: { active: false, startTime: null },
+                }));
+              },
+              2000 + Math.random() * 5000 + 5000
+            ); // 7-12 seconds total (2s comet + 5-10s wait)
           }
 
           // Schedule next potential comet
@@ -98,21 +117,19 @@ const StarfieldBackground = () => {
               }}
             />
 
-            {/* Comet */}
-            {isComet && (
-              <div
-                className="comet"
-                style={{
-                  left: `${star.x}%`,
-                  top: `${star.y}%`,
-                  width: `${star.size * 1.5}px`,
-                  height: `${star.size * 1.5}px`,
-                  '--comet-distance': `${Math.cos((star.cometDirection * Math.PI) / 180) * 300}px`,
-                  '--comet-distance-y': `${Math.sin((star.cometDirection * Math.PI) / 180) * 300}px`,
-                  '--comet-angle': `${star.cometDirection}deg`,
-                }}
-              />
-            )}
+            {/* Comet - Always rendered but conditionally visible */}
+            <div
+              className={`comet ${!isComet ? 'comet-inactive' : ''}`}
+              style={{
+                left: `${star.x}%`,
+                top: `${star.y}%`,
+                width: `${star.size * 1.5}px`,
+                height: `${star.size * 1.5}px`,
+                '--comet-distance': `${Math.cos((star.cometDirection * Math.PI) / 180) * 300}px`,
+                '--comet-distance-y': `${Math.sin((star.cometDirection * Math.PI) / 180) * 300}px`,
+                '--comet-angle': `${star.cometDirection}deg`,
+              }}
+            />
           </React.Fragment>
         );
       })}
