@@ -48,9 +48,13 @@ const Navbar = ({
   }, [isMobileMenuOpen]);
 
   const handleNavClick = (item, sectionId) => {
-    const isAvailable = ['intro', 'experience', 'about', 'contact'].includes(
-      sectionId
-    );
+    const isAvailable = [
+      'intro',
+      'experience',
+      'projects',
+      'about',
+      'contact',
+    ].includes(sectionId);
 
     if (!isAvailable) {
       alert(`${item} section coming soon!`);
@@ -95,6 +99,7 @@ const Navbar = ({
           const isAvailable = [
             'intro',
             'experience',
+            'projects',
             'about',
             'contact',
           ].includes(sectionId);
@@ -189,6 +194,7 @@ const Navbar = ({
               const isAvailable = [
                 'intro',
                 'experience',
+                'projects',
                 'about',
                 'contact',
               ].includes(sectionId);

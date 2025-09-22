@@ -1,0 +1,26 @@
+[
+  {
+    "id": "portfolio-website",
+    "title": "Portfolio Website",
+    "description": "A modern, responsive portfolio website built with React and Vite. Features smooth animations, interactive components, and a sleek design.",
+    "technologies": ["React", "Vite", "Tailwind CSS", "JavaScript"],
+    "githubUrl": "https://github.com/aitzaz-qadir/portfolio-website",
+    "liveUrl": "https://aitzaz-qadir.netlify.app",
+    "status": "in-progress",
+    "imageUrl": "/assets/portfolio-picture.png"
+  },
+  {
+    "id": "coming-soon-1",
+    "title": "Project Coming Soon",
+    "description": "Exciting new project in development. Stay tuned for updates!",
+    "technologies": ["TBA"],
+    "status": "planned"
+  },
+  {
+    "id": "coming-soon-2",
+    "title": "Another Great Project",
+    "description": "Another amazing project that will showcase my skills and creativity.",
+    "technologies": ["TBA"],
+    "status": "planned"
+  }
+]
