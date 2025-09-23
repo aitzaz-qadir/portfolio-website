@@ -54,9 +54,6 @@ const ExperienceSection = ({ hasNavigatedToExperience }) => {
         Experience 👔
       </h1>
       <div className="max-w-full sm:max-w-3xl lg:max-w-4xl w-full relative">
-        {/* Vertical timeline line - hidden on mobile, visible on sm+ */}
-        <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-white/20 via-white/40 to-white/20 hidden sm:block"></div>
-
         {/* Loop through JSON to render each experience item */}
         <div className="space-y-6 sm:space-y-8 lg:space-y-12">
           {experiencesData.map((experience, index) => (

@@ -5,24 +5,34 @@ import PropTypes from 'prop-types';
 const ExperienceCard = ({ experience, isVisible }) => {
   return (
     <div
-      className={`relative flex items-start space-x-4 sm:space-x-6 lg:space-x-8 experience-card ${isVisible ? 'animate' : ''}`}
+      className={`relative flex items-start experience-card ${isVisible ? 'animate' : ''}`}
       style={{ animationDelay: experience.animationDelay }}
     >
-      {/* Timeline dot - smaller on mobile */}
-      <div className="relative z-10 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.5)] border-2 border-white/20 flex-shrink-0 mt-4 sm:mt-6"></div>
-
       {/* Content card*/}
-      <div className="flex-1 bg-neutral-900/70 backdrop-blur-md rounded-xl border border-white/20 p-4 sm:p-5 lg:p-6 shadow-lg hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1">
+      <div className="flex-1 bg-neutral-900/70 backdrop-blur-md rounded-xl border border-white/20 p-4 sm:p-5 lg:p-6 shadow-lg hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300">
         {/* Job details */}
-        <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4">
-          <div className="flex-1 min-w-0">
-            <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
-              {experience.title}
-            </h3>
-            <p className="text-base sm:text-lg text-white/80 font-semibold">
-              {experience.company}
-            </p>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4">
+          <div className="flex items-center space-x-3 sm:space-x-4 flex-1 min-w-0 mb-2 sm:mb-0">
+            {/* Company logo */}
+            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 border border-white/20 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden">
+              <img
+                src={experience.logo}
+                alt={`${experience.company} logo`}
+                className="w-full h-full object-contain p-1.5"
+              />
+            </div>
+
+            {/* Job title and company */}
+            <div className="flex-1 min-w-0">
+              <h3 className="text-lg sm:text-xl font-bold text-white leading-tight">
+                {experience.title}
+              </h3>
+              <p className="text-base sm:text-lg text-white/80 font-semibold">
+                {experience.company}
+              </p>
+            </div>
           </div>
+
           <span className="text-xs sm:text-sm text-white/60 bg-white/10 px-2 sm:px-3 py-1 rounded-full self-start sm:self-center flex-shrink-0">
             {experience.period}
           </span>
@@ -61,6 +71,7 @@ ExperienceCard.propTypes = {
     title: PropTypes.string.isRequired,
     company: PropTypes.string.isRequired,
     period: PropTypes.string.isRequired,
+    logo: PropTypes.string.isRequired,
     responsibilities: PropTypes.arrayOf(PropTypes.string).isRequired,
     skills: PropTypes.arrayOf(PropTypes.string).isRequired,
     animationDelay: PropTypes.string.isRequired,

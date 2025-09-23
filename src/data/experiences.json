@@ -4,6 +4,7 @@
     "title": "Junior Web Development Consultant",
     "company": "Content Bloom (Co-op)",
     "period": "Sept 2021 — Dec 2021",
+    "logo": "/assets/logos/logo-1.png",
     "responsibilities": [
       "Identified and remediated 1,300+ accessibility violations across 15+ enterprise websites, boosting WCAG compliance scores by over 85% using WAVE and semantic HTML optimization.",
       "Engineered 12+ dynamic PDF/HTML forms with auto-fill, validation, and conditional logic using Adobe LiveCycle and JavaScript, reducing form error rates by 60%.",
@@ -25,6 +26,7 @@
     "title": "Residence Assistant",
     "company": "Dalhousie University",
     "period": "Sept 2021 — April 2022",
+    "logo": "/assets/logos/logo-2.png",
     "responsibilities": [
       "Selected to provide leadership, support, and mentoring to students living in on-campus residences.",
       "Organized social/educational events, responded to emergencies, and maintained order within the residence.",
@@ -45,6 +47,7 @@
     "title": "Store Clerk",
     "company": "Atlantic Superstore",
     "period": "Jan 2025 — June 2025",
+    "logo": "/assets/logos/logo-3.png",
     "responsibilities": [
       "Worked night shifts to ensure shelves were fully stocked and organized for daily operations.",
       "Collaborated with a team to unload, sort, and stock inventory accurately and efficiently.",
