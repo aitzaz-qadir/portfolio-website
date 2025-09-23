@@ -22,9 +22,9 @@ const ProjectsSection = () => {
       </div>
 
       {/* Projects grid - responsive layout */}
-      <div className="max-w-full sm:max-w-4xl lg:max-w-6xl w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      <div className="max-w-full sm:max-w-4xl lg:max-w-6xl w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-stretch">
         {projectsData.map((project) => (
-          <div key={project.id}>
+          <div key={project.id} className="flex">
             <ProjectCard project={project} />
           </div>
         ))}
