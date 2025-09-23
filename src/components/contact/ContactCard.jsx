@@ -11,7 +11,7 @@ const ContactCard = ({ contact }) => {
   // Icon components for different contact methods
   const renderIcon = (iconType) => {
     const iconSize = 'w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10';
-    const iconClassName = `${iconSize} ${contact.colorTheme.iconColor} hover:animate-spin transition-transform duration-300`;
+    const iconClassName = `${iconSize} ${contact.colorTheme.iconColor} transition-transform duration-300`;
 
     // Return appropriate Tabler icon based on iconType
     switch (iconType) {

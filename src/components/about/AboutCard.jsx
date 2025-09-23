@@ -212,7 +212,7 @@ const AboutCard = ({ item }) => {
           <div className="flex flex-col items-center text-center h-full">
             <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-blue-500/20 rounded-full flex items-center justify-center mb-3 sm:mb-4 group">
               <IconSchool
-                className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-blue-400 group-hover:animate-spin transition-transform duration-300"
+                className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-blue-400 transition-transform duration-300"
                 stroke={2.5}
               />
             </div>
