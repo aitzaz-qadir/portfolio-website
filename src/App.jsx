@@ -8,11 +8,18 @@ import AboutSection from './components/about/AboutSection';
 import ContactSection from './components/contact/ContactSection';
 import StarfieldBackground from './components/hero/StarfieldBackground';
 
-// Smooth scroll function
+// Smooth scroll function with mobile navbar offset
 const scrollToSection = (sectionId) => {
   const section = document.getElementById(sectionId);
   if (section) {
-    section.scrollIntoView({
+    const isMobile = window.innerWidth < 768;
+    const navbarHeight = isMobile ? 60 : 0; // Reduced mobile navbar offset
+
+    const elementPosition = section.offsetTop;
+    const offsetPosition = elementPosition - navbarHeight;
+
+    window.scrollTo({
+      top: offsetPosition,
       behavior: 'smooth',
     });
   } else {
