@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing my skills and experience as a Computer Science graduate. Built with cutting-edge web technologies and featuring smooth animations, interactive components, and an engaging starfield background.
 
-**🌟 [Live Demo](https://aitzaz-qadir.netlify.app)**
+**🌟 [Live Demo](https://aitzaz-portfolio.netlify.app/)**
 
 ## ✨ Features
 
@@ -26,7 +26,7 @@ A modern, responsive portfolio website showcasing my skills and experience as a 
 
 ```
 src/
-├── components/          # React components
+├── components/         # React components
 │   ├── about/          # About section components
 │   ├── contact/        # Contact section components
 │   ├── experience/     # Experience/work history
