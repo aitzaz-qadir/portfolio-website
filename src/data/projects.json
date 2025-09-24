@@ -6,7 +6,7 @@
     "technologies": ["React", "Vite", "Tailwind CSS", "JavaScript"],
     "githubUrl": "https://github.com/aitzaz-qadir/portfolio-website",
     "liveUrl": "https://aitzaz-qadir.netlify.app",
-    "status": "in-progress",
+    "status": "completed",
     "imageUrl": "/assets/portfolio-picture.png"
   },
   {
