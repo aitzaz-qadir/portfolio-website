@@ -10,11 +10,19 @@
     "imageUrl": "/assets/portfolio-picture.png"
   },
   {
-    "id": "coming-soon-1",
-    "title": "Project Coming Soon",
-    "description": "Exciting new project in development. Stay tuned for updates!",
-    "technologies": ["TBA"],
-    "status": "planned"
+    "id": "checkout-zone",
+    "title": "Checkout Zone",
+    "description": "An equipment checkout system for internal company employees to manage and track laptops, hardware, and other equipment. Built with enterprise-grade technologies for scalability and reliability.",
+    "technologies": [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Docker",
+      "Bootstrap"
+    ],
+    "githubUrl": "https://github.com/aitzaz-qadir/checkout-zone",
+    "status": "in-progress",
+    "imageUrl": "/assets/checkout-zone.png"
   },
   {
     "id": "coming-soon-2",

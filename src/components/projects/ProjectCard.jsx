@@ -9,6 +9,7 @@ import {
 // Individual project card component
 const ProjectCard = ({ project }) => {
   const {
+    id,
     title,
     description,
     technologies,
@@ -44,11 +45,17 @@ const ProjectCard = ({ project }) => {
       {/* Project Image */}
       <div className="relative mb-4 overflow-hidden rounded-lg">
         {imageUrl ? (
-          <img
-            src={imageUrl}
-            alt={title}
-            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-          />
+          <>
+            <img
+              src={imageUrl}
+              alt={title}
+              className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+            />
+            {/* Dim overlay for checkout zone project */}
+            {id === 'checkout-zone' && (
+              <div className="absolute inset-0 bg-black/30"></div>
+            )}
+          </>
         ) : (
           // Placeholder for projects without images
           <div className="w-full h-48 bg-gradient-to-br from-neutral-800 to-neutral-700 flex items-center justify-center">
@@ -56,13 +63,13 @@ const ProjectCard = ({ project }) => {
           </div>
         )}
         {status && (
-          <div className="absolute top-2 right-2">
+          <div className="absolute top-3 right-2">
             <span
-              className={`px-2 py-1 text-xs font-semibold rounded-full ${
+              className={`px-3 py-2 text-sm font-bold rounded-full ${
                 status === 'completed'
                   ? 'bg-green-500/20 text-green-400 border border-green-500/30'
                   : status === 'in-progress'
-                    ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+                    ? 'bg-yellow-400/90 text-gray-800 border border-yellow-400/90'
                     : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
               }`}
             >
@@ -137,6 +144,7 @@ const ProjectCard = ({ project }) => {
 
 ProjectCard.propTypes = {
   project: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     technologies: PropTypes.arrayOf(PropTypes.string),
