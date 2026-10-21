@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Claude
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+TODO.md
