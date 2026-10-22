@@ -1,8 +1,8 @@
-import { Fragment, useEffect, useState, useMemo } from 'react';
+import { Fragment, useEffect, useState, useMemo, useRef } from 'react';
 
 const StarfieldBackground = () => {
-  const [isClient, setIsClient] = useState(false);
   const [cometStates, setCometStates] = useState({});
+  const timersRef = useRef(new Set());
 
   // Generate stars with random properties
   const stars = useMemo(() => {
@@ -30,16 +30,21 @@ const StarfieldBackground = () => {
     return starArray;
   }, []);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   // Comet management
   useEffect(() => {
-    if (!isClient) return;
+    const timers = timersRef.current;
 
-    const intervals = stars.map((star) => {
-      return setTimeout(() => {
+    // setTimeout that's tracked so cleanup can clear the whole chain
+    const schedule = (fn, ms) => {
+      const id = setTimeout(() => {
+        timers.delete(id);
+        fn();
+      }, ms);
+      timers.add(id);
+    };
+
+    stars.forEach((star) => {
+      schedule(() => {
         const triggerComet = () => {
           // Skip comet for stars that are hidden on mobile/tablet
           const isHiddenOnTablet = (star.id + 1) % 3 === 1; // 3n + 1 pattern
@@ -53,7 +58,7 @@ const StarfieldBackground = () => {
           ) {
             // Schedule next potential comet without triggering
             const nextInterval = Math.random() * 30000 + 30000; // 30-60 seconds
-            setTimeout(triggerComet, nextInterval);
+            schedule(triggerComet, nextInterval);
             return;
           }
 
@@ -65,7 +70,7 @@ const StarfieldBackground = () => {
             }));
 
             // Deactivate comet after 2 seconds and schedule next one
-            setTimeout(
+            schedule(
               () => {
                 setCometStates((prev) => ({
                   ...prev,
@@ -78,7 +83,7 @@ const StarfieldBackground = () => {
 
           // Schedule next potential comet
           const nextInterval = Math.random() * 30000 + 30000; // 30-60 seconds
-          setTimeout(triggerComet, nextInterval);
+          schedule(triggerComet, nextInterval);
         };
 
         triggerComet();
@@ -86,14 +91,10 @@ const StarfieldBackground = () => {
     });
 
     return () => {
-      intervals.forEach((interval) => clearTimeout(interval));
+      timers.forEach(clearTimeout);
+      timers.clear();
     };
-  }, [isClient, stars]);
-
-  // Don't render on server to avoid hydration mismatch
-  if (!isClient) {
-    return null;
-  }
+  }, [stars]);
 
   return (
     <div className="starfield-container">
