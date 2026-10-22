@@ -33,7 +33,7 @@
 }
 
 .experience-card.animate {
-  animation: slideInFromRight 0.8s ease-out forwards;
+  animation: slideInFromRight 0.5s ease-out forwards;
 }
 
 /* Starfield Background Animations */

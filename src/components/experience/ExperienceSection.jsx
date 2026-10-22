@@ -8,7 +8,7 @@ const ExperienceSection = () => {
   const [visibleCards, setVisibleCards] = useState(new Set());
   const listRef = useRef(null);
 
-  // Reveal each card once, when its top passes 80% of the viewport height
+  // Reveal each card once, when its top passes 90% of the viewport height
   useEffect(() => {
     const cards = [...listRef.current.querySelectorAll('.experience-card')];
     const observer = new IntersectionObserver(
@@ -20,7 +20,7 @@ const ExperienceSection = () => {
           observer.unobserve(entry.target);
         });
       },
-      { rootMargin: '0px 0px -20% 0px' }
+      { rootMargin: '0px 0px -10% 0px' }
     );
     cards.forEach((card) => observer.observe(card));
     return () => observer.disconnect();
@@ -39,7 +39,7 @@ const ExperienceSection = () => {
               key={experience.id}
               experience={experience}
               isVisible={visibleCards.has(index)}
-              delay={`${(index + 1) * 0.1}s`}
+              delay={`${index * 0.05}s`}
             />
           ))}
         </div>
