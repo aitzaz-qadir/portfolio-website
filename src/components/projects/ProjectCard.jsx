@@ -3,7 +3,13 @@ import {
   IconExternalLink,
   IconBrandGithub,
   IconCode,
+  IconLock,
+  IconMail,
 } from '@tabler/icons-react';
+import contacts from '../../data/contacts.json';
+
+// Email link reused for "Code On Request", so the address lives only in contacts.json
+const EMAIL_HREF = contacts.find((c) => c.id === 'email').href;
 
 // One project: image with status badge, description, tech tags and links
 const ProjectCard = ({ project }) => {
@@ -16,6 +22,7 @@ const ProjectCard = ({ project }) => {
     imageUrl,
     status,
     dimImage,
+    internal,
   } = project;
 
   return (
@@ -100,7 +107,7 @@ const ProjectCard = ({ project }) => {
         )}
 
         {/* Links pinned to the bottom so buttons line up across cards */}
-        <div className="flex gap-3 mt-auto">
+        <div className="flex flex-wrap gap-3 mt-auto">
           {githubUrl && (
             <a
               href={githubUrl}
@@ -128,6 +135,23 @@ const ProjectCard = ({ project }) => {
               <span className="text-sm font-medium">Coming Soon</span>
             </div>
           )}
+          {/* Internal work: no public links, so say so instead */}
+          {internal && (
+            // Compact sizing keeps both pills on one line; they stack only on phones
+            <div className="flex flex-wrap gap-2 whitespace-nowrap">
+              <div className="flex items-center gap-1.5 px-2.5 py-2 bg-orange-500/20 text-orange-400 border border-orange-500/30 rounded-lg">
+                <IconLock className="w-3.5 h-3.5" />
+                <span className="text-xs font-medium">Internal Project</span>
+              </div>
+              <a
+                href={`${EMAIL_HREF}?subject=${encodeURIComponent(`Code request: ${title}`)}`}
+                className="flex items-center gap-1.5 px-2.5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-200 hover:scale-105"
+              >
+                <IconMail className="w-3.5 h-3.5" />
+                <span className="text-xs font-medium">Code On Request</span>
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -145,6 +169,7 @@ ProjectCard.propTypes = {
     imageUrl: PropTypes.string,
     status: PropTypes.oneOf(['completed', 'in-progress', 'planned']),
     dimImage: PropTypes.bool,
+    internal: PropTypes.bool,
   }).isRequired,
 };
 

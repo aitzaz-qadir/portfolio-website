@@ -36,6 +36,37 @@
     "dimImage": true
   },
   {
+    "id": "charts-please",
+    "title": "Charts, Please!",
+    "description": "A Papers, Please-inspired game that trains nurses on the Oracle Health cutover workflow under time pressure. Launched on deadline and reached nearly 300 users, who signed off nearly 700 patients.",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Firebase",
+      "Netlify",
+      "Git",
+      "Team Collaboration"
+    ],
+    "status": "completed",
+    "imageUrl": "/assets/charts-please.png",
+    "internal": true
+  },
+  {
+    "id": "master-aldrics-labyrinth",
+    "title": "Master Aldric's Labyrinth",
+    "description": "A maze-based cutover training game for pharmacists, with job aids built into play. 270+ workflows completed, averaging 11 minutes of play.",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Firebase",
+      "Git",
+      "AI-Assisted Development"
+    ],
+    "status": "completed",
+    "imageUrl": "/assets/labyrinth.png",
+    "internal": true
+  },
+  {
     "id": "coming-soon-2",
     "title": "Another Great Project",
     "description": "Another amazing project that will showcase my skills and creativity.",

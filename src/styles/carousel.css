@@ -25,3 +25,11 @@
 .animate-moveRight {
   animation: moveRight 20s linear infinite;
 }
+
+/* Projects strip: scrollable, but with no visible scrollbar */
+.carousel-strip {
+  scrollbar-width: none;
+}
+.carousel-strip::-webkit-scrollbar {
+  display: none;
+}
