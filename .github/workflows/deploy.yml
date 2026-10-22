@@ -1,0 +1,45 @@
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# id-token lets the job get the signed GitHub token that AWS checks (OIDC)
+permissions:
+  id-token: write
+  contents: read
+
+# One deploy at a time; a newer push waits instead of racing an older one
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+env:
+  AWS_REGION: ca-central-1
+  BUCKET: aitzazqadir-portfolio
+  DISTRIBUTION_ID: E1VWDUY71PHDJJ
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # A lint error stops the deploy before anything is uploaded
+      - run: npm run lint
+      - run: npm run build
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::851725432663:role/github-actions-portfolio
+          aws-region: ${{ env.AWS_REGION }}
+      # Everything but index.html: browsers may keep it for an hour
+      - run: aws s3 sync dist s3://$BUCKET --delete --exclude index.html --cache-control "public,max-age=3600"
+      # index.html: browsers re-check every visit, so new deploys show right away
+      - run: aws s3 cp dist/index.html s3://$BUCKET/index.html --cache-control "no-cache"
+      # Drop CloudFront's cached copies so visitors get the new files
+      - run: aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
