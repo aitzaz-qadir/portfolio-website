@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+// Sections in nav order; lowercased, each matches a section element id
+const NAV_ITEMS = ['Intro', 'Experience', 'Projects', 'About', 'Contact'];
+
 // Navigation component that provides smooth scrolling between sections and visual feedback
 const Navbar = ({
   isScrolled,
@@ -47,20 +50,7 @@ const Navbar = ({
     };
   }, [isMobileMenuOpen]);
 
-  const handleNavClick = (item, sectionId) => {
-    const isAvailable = [
-      'intro',
-      'experience',
-      'projects',
-      'about',
-      'contact',
-    ].includes(sectionId);
-
-    if (!isAvailable) {
-      alert(`${item} section coming soon!`);
-      return;
-    }
-
+  const handleNavClick = (sectionId) => {
     if (sectionId === 'experience') {
       scrollToExperience();
     } else {
@@ -71,14 +61,6 @@ const Navbar = ({
     window.history.pushState(null, null, `#${sectionId}`);
     setIsMobileMenuOpen(false); // Close mobile menu after navigation
   };
-
-  const navigationItems = [
-    'Intro',
-    'Experience',
-    'Projects',
-    'About',
-    'Contact',
-  ];
 
   // Desktop Navigation
   if (!isMobile) {
@@ -93,16 +75,9 @@ const Navbar = ({
               : 'rounded-lg border border-white/20'
           }`}
       >
-        {navigationItems.map((item) => {
+        {NAV_ITEMS.map((item) => {
           const sectionId = item.toLowerCase();
           const isActive = activeSection === sectionId;
-          const isAvailable = [
-            'intro',
-            'experience',
-            'projects',
-            'about',
-            'contact',
-          ].includes(sectionId);
 
           return (
             <a
@@ -110,14 +85,12 @@ const Navbar = ({
               href={`#${sectionId}`}
               onClick={(e) => {
                 e.preventDefault();
-                handleNavClick(item, sectionId);
+                handleNavClick(sectionId);
               }}
               className={`text-base px-3 py-1 rounded-md transition-all duration-200 focus-visible:focus-visible ${
-                isActive && isAvailable
+                isActive
                   ? 'text-black bg-white shadow-[0_0_8px_rgba(255,255,255,0.3)]'
-                  : isAvailable
-                    ? 'text-white/70 hover:text-white hover:bg-white/10 hover:shadow-lg'
-                    : 'text-white/40 cursor-not-allowed opacity-50'
+                  : 'text-white/70 hover:text-white hover:bg-white/10 hover:shadow-lg'
               }`}
             >
               {item}
@@ -188,16 +161,9 @@ const Navbar = ({
       >
         <div className="p-6 pt-20">
           <div className="space-y-4">
-            {navigationItems.map((item) => {
+            {NAV_ITEMS.map((item) => {
               const sectionId = item.toLowerCase();
               const isActive = activeSection === sectionId;
-              const isAvailable = [
-                'intro',
-                'experience',
-                'projects',
-                'about',
-                'contact',
-              ].includes(sectionId);
 
               return (
                 <a
@@ -205,22 +171,15 @@ const Navbar = ({
                   href={`#${sectionId}`}
                   onClick={(e) => {
                     e.preventDefault();
-                    handleNavClick(item, sectionId);
+                    handleNavClick(sectionId);
                   }}
                   className={`touch-button block w-full text-left px-4 py-3 rounded-lg transition-all duration-200 focus-visible:focus-visible ${
-                    isActive && isAvailable
+                    isActive
                       ? 'text-black bg-white shadow-[0_0_8px_rgba(255,255,255,0.3)]'
-                      : isAvailable
-                        ? 'text-white/70 hover:text-white hover:bg-white/10'
-                        : 'text-white/40 cursor-not-allowed opacity-50'
+                      : 'text-white/70 hover:text-white hover:bg-white/10'
                   }`}
                 >
                   {item}
-                  {!isAvailable && (
-                    <span className="block text-xs text-white/40 mt-1">
-                      Coming Soon
-                    </span>
-                  )}
                 </a>
               );
             })}

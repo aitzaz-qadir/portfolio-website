@@ -9,7 +9,6 @@ import {
 // Individual project card component
 const ProjectCard = ({ project }) => {
   const {
-    id,
     title,
     description,
     technologies,
@@ -17,6 +16,7 @@ const ProjectCard = ({ project }) => {
     liveUrl,
     imageUrl,
     status,
+    dimImage,
   } = project;
 
   return (
@@ -51,10 +51,8 @@ const ProjectCard = ({ project }) => {
               alt={title}
               className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
             />
-            {/* Dim overlay for checkout zone project */}
-            {id === 'checkout-zone' && (
-              <div className="absolute inset-0 bg-black/30"></div>
-            )}
+            {/* Optional dim overlay for bright images */}
+            {dimImage && <div className="absolute inset-0 bg-black/30"></div>}
           </>
         ) : (
           // Placeholder for projects without images
@@ -152,6 +150,7 @@ ProjectCard.propTypes = {
     liveUrl: PropTypes.string,
     imageUrl: PropTypes.string,
     status: PropTypes.oneOf(['completed', 'in-progress', 'planned']),
+    dimImage: PropTypes.bool,
   }).isRequired,
 };
 

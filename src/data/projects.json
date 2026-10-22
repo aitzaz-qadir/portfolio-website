@@ -12,7 +12,7 @@
       "VS Code"
     ],
     "githubUrl": "https://github.com/aitzaz-qadir/portfolio-website",
-    "liveUrl": "https://aitzaz-qadir.netlify.app",
+    "liveUrl": "https://aitzaz-portfolio.netlify.app",
     "status": "completed",
     "imageUrl": "/assets/portfolio-picture.png"
   },
@@ -30,7 +30,8 @@
     ],
     "githubUrl": "https://github.com/aitzaz-qadir/checkout-zone",
     "status": "in-progress",
-    "imageUrl": "/assets/checkout-zone.png"
+    "imageUrl": "/assets/checkout-zone.png",
+    "dimImage": true
   },
   {
     "id": "coming-soon-2",

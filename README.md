@@ -20,7 +20,7 @@ A modern, responsive portfolio website showcasing my skills and experience as a 
 - ⚡ **Vite** - Fast build tool and dev server
 - 🎨 **Tabler Icons** - Beautiful, customizable icon library
 - 📱 **Mobile-First Design** - Responsive breakpoints and touch-friendly interactions
-- 🎯 **PropTypes** - Runtime type checking for React props
+- 🎯 **PropTypes** - Props documentation + lint checks
 
 ## 📁 Project Structure
 
@@ -32,16 +32,16 @@ src/
 │   ├── experience/     # Experience/work history
 │   ├── hero/           # Landing section with starfield
 │   ├── layout/         # Navigation and layout components
-│   ├── projects/       # Projects showcase
-│   └── ui/             # Reusable UI components
+│   └── projects/       # Projects showcase
 ├── data/               # JSON data files
-├── styles/             # Modular CSS files
-│   ├── accessibility.css
-│   ├── animations.css
-│   ├── base.css
-│   ├── carousel.css
-│   └── responsive.css
-└── assets/             # Images and static files
+└── styles/             # Modular CSS files
+    ├── accessibility.css
+    ├── animations.css
+    ├── base.css
+    ├── carousel.css
+    └── responsive.css
+public/
+└── assets/             # Images, resume, logos (served at /assets/...)
 ```
 
 ## 🚀 Getting Started
@@ -91,7 +91,7 @@ Feel free to fork this project and customize it for your own portfolio! If you f
 
 **Aitzaz Qadir**
 
-- Portfolio: [aitzaz-qadir.netlify.app](https://aitzaz-qadir.netlify.app)
+- Portfolio: [aitzaz-portfolio.netlify.app](https://aitzaz-portfolio.netlify.app)
 - GitHub: [@aitzaz-qadir](https://github.com/aitzaz-qadir)
 - LinkedIn: [linkedin.com/in/aitzaz-qadir](https://www.linkedin.com/in/aitzaz-qadir/)
 - Email: aitzazqk@gmail.com
