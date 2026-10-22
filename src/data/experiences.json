@@ -1,23 +1,42 @@
 [
   {
-    "id": 1,
-    "title": "Junior Web Development Consultant",
-    "company": "Content Bloom (Co-op)",
-    "period": "Sept 2021 — Dec 2021",
-    "logo": "/assets/logos/logo-1.png",
+    "id": 4,
+    "title": "Intern Support Consultant",
+    "company": "Nova Scotia Health (OPOR)",
+    "period": "Feb 2026 — Present",
+    "logo": "/assets/logos/logo-4.png",
     "responsibilities": [
-      "Identified and remediated 1,300+ accessibility violations across 15+ enterprise websites, boosting WCAG compliance scores by over 85% using WAVE and semantic HTML optimization.",
-      "Engineered 12+ dynamic PDF/HTML forms with auto-fill, validation, and conditional logic using Adobe LiveCycle and JavaScript, reducing form error rates by 60%.",
-      "Partnered with cross-functional teams and clients to deploy accessibility fixes and iterate on financial form requirements, cutting delivery timelines by 30%."
+      "Designed and led development of Charts, Please! and Master Aldric's Labyrinth, gamified cutover training for nurses and pharmacists (React, TypeScript, Firebase), reaching nearly 350 clinical staff.",
+      "Facilitated Oracle Health PowerChart training for nurses, providers and pharmacists, and provided at-the-elbow and on-site cutover support for Go-Live 2 and 3.",
+      "Built a master Excel dashboard consolidating 38 trackers across 3 health zones to track cutover of nearly 8,000 patient charts, and helped build a Power App for nurses' cutover questions."
     ],
     "skills": [
-      "HTML/CSS",
-      "JavaScript",
-      "CMS",
-      "Adobe LiveCycle",
-      "Git",
-      "JIRA",
-      "Agile Methodologies"
+      "React",
+      "TypeScript",
+      "Firebase",
+      "Oracle Health PowerChart",
+      "Excel",
+      "Power Apps",
+      "Clinical Training"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Store Clerk",
+    "company": "Atlantic Superstore",
+    "period": "Jan 2025 — June 2025",
+    "logo": "/assets/logos/logo-3.png",
+    "responsibilities": [
+      "Worked night shifts to ensure shelves were fully stocked and organized for daily operations.",
+      "Collaborated with a team to unload, sort, and stock inventory accurately and efficiently.",
+      "Maintained back storage areas, ensuring organization and cleanliness for smooth inventory flow."
+    ],
+    "skills": [
+      "Customer Service",
+      "Inventory Management",
+      "Team Collaboration",
+      "Time Management",
+      "Problem Solving"
     ]
   },
   {
@@ -41,22 +60,24 @@
     ]
   },
   {
-    "id": 3,
-    "title": "Store Clerk",
-    "company": "Atlantic Superstore",
-    "period": "Jan 2025 — June 2025",
-    "logo": "/assets/logos/logo-3.png",
+    "id": 1,
+    "title": "Junior Web Development Consultant",
+    "company": "Content Bloom (Co-op)",
+    "period": "Sept 2021 — Dec 2021",
+    "logo": "/assets/logos/logo-1.png",
     "responsibilities": [
-      "Worked night shifts to ensure shelves were fully stocked and organized for daily operations.",
-      "Collaborated with a team to unload, sort, and stock inventory accurately and efficiently.",
-      "Maintained back storage areas, ensuring organization and cleanliness for smooth inventory flow."
+      "Identified and remediated 1,300+ accessibility violations across 15+ enterprise websites, boosting WCAG compliance scores by over 85% using WAVE and semantic HTML optimization.",
+      "Engineered 12+ dynamic PDF/HTML forms with auto-fill, validation, and conditional logic using Adobe LiveCycle and JavaScript, reducing form error rates by 60%.",
+      "Partnered with cross-functional teams and clients to deploy accessibility fixes and iterate on financial form requirements, cutting delivery timelines by 30%."
     ],
     "skills": [
-      "Customer Service",
-      "Inventory Management",
-      "Team Collaboration",
-      "Time Management",
-      "Problem Solving"
+      "HTML/CSS",
+      "JavaScript",
+      "CMS",
+      "Adobe LiveCycle",
+      "Git",
+      "JIRA",
+      "Agile Methodologies"
     ]
   }
 ]

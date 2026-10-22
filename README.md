@@ -42,7 +42,7 @@ src/
     ├── carousel.css
     └── responsive.css
 public/
-└── assets/             # Images, resume, logos (served at /assets/...)
+└── assets/             # Images and logos (served at /assets/...)
 ```
 
 ## 🚀 Getting Started

@@ -16,7 +16,6 @@ const ResumeCard = ({ item }) => (
 
     <a
       href={item.downloadUrl}
-      download
       className="touch-friendly inline-block mt-1 px-3 sm:px-4 py-2 bg-white/10 hover:bg-blue-500/20 border border-white/30 hover:border-blue-400/50 rounded-lg text-white hover:text-blue-300 text-sm sm:text-base font-medium transition-all duration-300"
     >
       {item.buttonText}

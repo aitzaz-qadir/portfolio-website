@@ -3,9 +3,10 @@
     "id": "location",
     "type": "location",
     "title": "Current Location",
-    "description": "Based in Toronto, Ontario",
-    "content": "Toronto, ON",
-    "mapImage": "/assets/toronto-map.png",
+    "description": "Based in Halifax, Canada",
+    "content": "Open To Relocation",
+    "mapImage": "/assets/halifax-map.png",
+    "mapAlt": "Map of Halifax",
     "profileImage": "/assets/profile-pic.jpg"
   },
   {
@@ -40,9 +41,9 @@
     "id": "project",
     "type": "project",
     "title": "Current Project",
-    "description": "What I'm working on lately.",
-    "content": "Portfolio Website",
-    "image": "/assets/portfolio-picture.png"
+    "description": "An internal project I'm working on lately.",
+    "content": "Master Aldric's Labyrinth",
+    "image": "/assets/labyrinth.png"
   },
   {
     "id": "resume",
@@ -50,7 +51,7 @@
     "title": "Education & Resume",
     "description": "Learn about my educational background and download my resume.",
     "buttonText": "Download Resume",
-    "downloadUrl": "/assets/resume.pdf"
+    "downloadUrl": "https://github.com/aitzaz-qadir/resume/releases/latest/download/Aitzaz_Qadir_Resume.pdf"
   },
   {
     "id": "toolbox",

@@ -19,17 +19,19 @@
   {
     "id": "checkout-zone",
     "title": "Checkout Zone",
-    "description": "An equipment checkout system for internal company employees to manage and track laptops, hardware, and other equipment. Built with enterprise-grade technologies for scalability and reliability.",
+    "description": "Equipment checkout system with role-based access, deployed on AWS EC2 with Docker and HTTPS. A GitHub Actions pipeline tests and deploys every change using keyless OIDC auth.",
     "technologies": [
       "Java",
       "Spring Boot",
       "PostgreSQL",
       "Docker",
-      "Bootstrap",
+      "AWS",
+      "CI/CD",
       "JavaScript"
     ],
     "githubUrl": "https://github.com/aitzaz-qadir/checkout-zone",
-    "status": "in-progress",
+    "liveUrl": "https://99-79-19-16.sslip.io",
+    "status": "completed",
     "imageUrl": "/assets/checkout-zone.png",
     "dimImage": true
   },

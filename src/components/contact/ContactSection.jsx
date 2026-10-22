@@ -30,7 +30,7 @@ const ContactSection = () => {
 
       <div className="mt-8 sm:mt-12 lg:mt-16 text-center px-2">
         <p className="text-sm sm:text-base text-white/60 mb-2 sm:mb-4">
-          Based in Toronto, Ontario <CanadaFlag />
+          Based in Halifax, Canada <CanadaFlag />
         </p>
         <p className="text-sm sm:text-base text-white/60">
           Available for full-time opportunities

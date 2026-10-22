@@ -8,7 +8,7 @@ const LocationCard = ({ item }) => (
     <CardMedia>
       <img
         src={item.mapImage}
-        alt={`Map of ${item.content}`}
+        alt={item.mapAlt}
         loading="lazy"
         decoding="async"
         className="h-full w-full object-cover"
@@ -50,6 +50,7 @@ LocationCard.propTypes = {
     description: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     mapImage: PropTypes.string.isRequired,
+    mapAlt: PropTypes.string.isRequired,
     profileImage: PropTypes.string.isRequired,
   }).isRequired,
 };
