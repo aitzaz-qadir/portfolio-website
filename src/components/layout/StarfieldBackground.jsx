@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const TABLET_MAX = 768;
 const PHONE_MAX = 480;
 
-const STAR_COUNT = 80;
+const STAR_COUNT = 120;
 
 const randomBetween = (min, max) => min + Math.random() * (max - min);
 
@@ -24,8 +24,8 @@ const makeStars = () =>
     twinkleDelay: randomBetween(0, 8),
     floatDuration: randomBetween(25, 40),
     floatDelay: randomBetween(0, 15),
-    cometChance: randomBetween(0.2, 0.3),
-    firstCometMs: randomBetween(5000, 15000),
+    cometChance: randomBetween(0.3, 0.4),
+    firstCometMs: randomBetween(2000, 8000),
     cometDirection: randomBetween(0, 360),
     // Thinned out on smaller screens (see .star-hide-* in animations.css)
     hideOnTablet: i % 3 === 0,
@@ -34,7 +34,7 @@ const makeStars = () =>
 
 /*
  * One star plus its comet, which share a position.
- * Every 30-60s the star may turn into a comet: the star hides, the comet shoots
+ * Every 20-40s the star may turn into a comet: the star hides, the comet shoots
  * (2s animation), and the star stays hidden for 7-12s in total before returning.
  */
 const Star = ({ star }) => {
@@ -45,7 +45,7 @@ const Star = ({ star }) => {
     const next = (fn, ms) => (timer = setTimeout(fn, ms));
 
     const tryComet = () => {
-      const wait = randomBetween(30000, 60000);
+      const wait = randomBetween(20000, 40000);
       const width = window.innerWidth;
       const hidden =
         (width <= TABLET_MAX && star.hideOnTablet) ||

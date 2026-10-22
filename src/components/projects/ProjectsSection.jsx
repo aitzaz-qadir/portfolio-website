@@ -18,7 +18,7 @@ const ArrowButton = ({ direction, disabled, onClick }) => {
       onClick={onClick}
       disabled={disabled}
       aria-label={direction === 'left' ? 'Previous projects' : 'Next projects'}
-      className="hidden sm:flex shrink-0 w-10 h-10 items-center justify-center rounded-full bg-neutral-900/70 border border-white/20 text-white/70 hover:text-white hover:bg-white/10 transition-all duration-200 disabled:opacity-30 disabled:pointer-events-none"
+      className="hidden sm:flex shrink-0 w-10 h-10 items-center justify-center rounded-full bg-neutral-900/70 border border-white/20 text-white/70 hover:text-white hover:bg-white/10 active:scale-90 transition-all duration-200 disabled:opacity-30 disabled:pointer-events-none"
     >
       <Icon className="w-6 h-6" />
     </button>

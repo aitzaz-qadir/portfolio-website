@@ -92,12 +92,12 @@ const ToolboxCard = ({ item }) => (
       <ToolCarousel
         tools={toCarouselTools(item.tools)}
         direction="left"
-        duration="22s"
+        duration="44s"
       />
       <ToolCarousel
         tools={toCarouselTools(item.toolsSecond)}
         direction="right"
-        duration="20.5s"
+        duration="49s"
       />
     </div>
   </div>

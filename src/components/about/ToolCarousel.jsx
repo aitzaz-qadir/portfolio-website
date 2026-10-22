@@ -8,7 +8,7 @@ const ToolCarousel = ({ tools, direction = 'left', duration = '20s' }) => {
   return (
     <div className="relative overflow-hidden">
       <div
-        className={`flex flex-none py-0.5 gap-6 pr-6 ${animationClass}`}
+        className={`flex w-max py-0.5 gap-6 pr-6 ${animationClass}`}
         style={{ animationDuration: duration }}
       >
         {tools.concat(tools).map((tool, index) => (

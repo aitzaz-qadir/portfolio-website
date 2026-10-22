@@ -1,5 +1,12 @@
 @import 'tailwindcss';
 
+/* Tailwind 4 dropped the pointer cursor on buttons; restore it */
+@layer base {
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
 /* Import modular CSS files */
 @import './styles/animations.css';
 @import './styles/carousel.css';
