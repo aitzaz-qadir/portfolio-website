@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing my skills and experience as a Computer Science graduate. Built with cutting-edge web technologies and featuring smooth animations, interactive components, and an engaging starfield background.
 
-**🌟 [Live Demo](https://aitzaz-portfolio.netlify.app/)**
+**🌟 [Live Site](https://aitzazqadir.dev/)**
 
 ## ✨ Features
 
@@ -21,6 +21,7 @@ A modern, responsive portfolio website showcasing my skills and experience as a 
 - 🎨 **Tabler Icons** - Beautiful, customizable icon library
 - 📱 **Mobile-First Design** - Responsive breakpoints and touch-friendly interactions
 - 🎯 **PropTypes** - Props documentation + lint checks
+- ☁️ **AWS S3 + CloudFront** - Hosting with HTTPS, deployed by GitHub Actions (OIDC, no stored keys)
 
 ## 📁 Project Structure
 
@@ -93,7 +94,7 @@ Feel free to fork this project and customize it for your own portfolio! If you f
 
 **Aitzaz Qadir**
 
-- Portfolio: [aitzaz-portfolio.netlify.app](https://aitzaz-portfolio.netlify.app)
+- Portfolio: [aitzazqadir.dev](https://aitzazqadir.dev)
 - GitHub: [@aitzaz-qadir](https://github.com/aitzaz-qadir)
 - LinkedIn: [linkedin.com/in/aitzaz-qadir](https://www.linkedin.com/in/aitzaz-qadir/)
 - Email: aitzazqk@gmail.com
