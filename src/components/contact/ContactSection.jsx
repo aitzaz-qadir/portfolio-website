@@ -1,17 +1,16 @@
 import ContactCard from './ContactCard';
 import contactsData from '../../data/contacts.json';
 import CanadaFlag from '../ui/CanadaFlag';
+import Section from '../ui/Section';
 
 // Intro line, contact cards from contacts.json, and a short footer note
 const ContactSection = () => {
   return (
-    <section
+    <Section
       id="contact"
-      className="min-h-screen flex flex-col items-center justify-center text-white px-3 sm:px-4 lg:px-8 py-12 sm:py-16 lg:py-20"
+      title="Let's Connect! 📧"
+      titleClassName="mb-4 sm:mb-6 lg:mb-8"
     >
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold drop-shadow-lg mb-4 sm:mb-6 lg:mb-8 text-center px-2">
-        Let&apos;s Connect! 📧
-      </h2>
       <p className="text-sm sm:text-base lg:text-lg text-center text-white/80 mb-8 sm:mb-12 lg:mb-16 max-w-sm sm:max-w-lg lg:max-w-2xl px-2">
         I&apos;m always open to discussing new opportunities, interesting
         projects, or just having a chat about technology.
@@ -37,7 +36,7 @@ const ContactSection = () => {
           Available for full-time opportunities
         </p>
       </div>
-    </section>
+    </Section>
   );
 };
 

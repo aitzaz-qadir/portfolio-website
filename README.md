@@ -30,14 +30,15 @@ src/
 │   ├── about/          # About section components
 │   ├── contact/        # Contact section components
 │   ├── experience/     # Experience/work history
-│   ├── hero/           # Landing section with starfield
-│   ├── layout/         # Navigation and layout components
-│   └── projects/       # Projects showcase
+│   ├── hero/           # Landing section
+│   ├── layout/         # Navbar and starfield background
+│   ├── projects/       # Projects showcase
+│   └── ui/             # Small shared components
 ├── data/               # JSON data files
+├── hooks/              # Custom React hooks
 └── styles/             # Modular CSS files
     ├── accessibility.css
     ├── animations.css
-    ├── base.css
     ├── carousel.css
     └── responsive.css
 public/
@@ -48,8 +49,8 @@ public/
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
-- npm or yarn
+- Node.js 20.19+ or 22.12+
+- npm
 
 ### Installation
 
@@ -74,6 +75,7 @@ npm run dev      # Start development server
 npm run build    # Build for production
 npm run preview  # Preview production build
 npm run lint     # Run ESLint
+npm run format   # Format with Prettier
 ```
 
 ## 📱 Browser Support

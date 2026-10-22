@@ -11,16 +11,15 @@ const ToolCarousel = ({ tools, direction = 'left', duration = '20s' }) => {
         className={`flex flex-none py-0.5 gap-6 pr-6 ${animationClass}`}
         style={{ animationDuration: duration }}
       >
-        {tools &&
-          tools.concat(tools).map((tool, index) => (
-            <div
-              key={`${direction}-${index}`}
-              className="flex items-center bg-white/10 rounded-lg px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base flex-shrink-0"
-            >
-              <span className="text-blue-400 mr-2 sm:mr-3">{tool.icon}</span>
-              <span className="font-semibold">{tool.name}</span>
-            </div>
-          ))}
+        {tools.concat(tools).map((tool, index) => (
+          <div
+            key={`${direction}-${index}`}
+            className="flex items-center bg-white/10 rounded-lg px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base flex-shrink-0"
+          >
+            <span className="text-blue-400 mr-2 sm:mr-3">{tool.icon}</span>
+            <span className="font-semibold">{tool.name}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

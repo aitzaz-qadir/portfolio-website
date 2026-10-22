@@ -31,7 +31,7 @@ const ProjectCard = ({ project }) => {
             }}
           ></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-yellow-400 text-black px-4 py-2 rounded-lg transform -rotate-12 shadow-lg border-2 border-black">
+            <div className="bg-yellow-400 text-black px-4 py-2 rounded-lg -rotate-12 shadow-lg border-2 border-black">
               <span className="font-bold text-sm tracking-wide">
                 🚧 UNDER CONSTRUCTION 🚧
               </span>
@@ -87,9 +87,9 @@ const ProjectCard = ({ project }) => {
         {technologies && technologies.length > 0 && (
           <div className="mb-4">
             <div className="flex flex-wrap gap-2">
-              {technologies.map((tech, index) => (
+              {technologies.map((tech) => (
                 <span
-                  key={index}
+                  key={tech}
                   className="px-2 py-1 text-xs font-medium bg-white/10 text-white/80 rounded-md border border-white/20 hover:bg-white/20 transition-colors duration-200"
                 >
                   {tech}

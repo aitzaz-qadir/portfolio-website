@@ -3,6 +3,48 @@ import PropTypes from 'prop-types';
 import sections from '../../data/sections.json';
 import { useIsMobile } from '../../hooks/useIsMobile';
 
+// Classes for each nav layout; active styling is shared
+const LINK_STYLES = {
+  desktop: {
+    base: 'text-base px-3 py-1 rounded-md',
+    inactive:
+      'text-white/70 hover:text-white hover:bg-white/10 hover:shadow-lg',
+  },
+  mobile: {
+    base: 'touch-button block w-full text-left px-4 py-3 rounded-lg',
+    inactive: 'text-white/70 hover:text-white hover:bg-white/10',
+  },
+};
+const ACTIVE_LINK =
+  'text-black bg-white shadow-[0_0_8px_rgba(255,255,255,0.3)]';
+
+// One section link; scrolls in-page instead of jumping
+const NavLink = ({ name, layout, isActive, onSelect }) => {
+  const sectionId = name.toLowerCase();
+  const { base, inactive } = LINK_STYLES[layout];
+
+  return (
+    <a
+      href={`#${sectionId}`}
+      aria-current={isActive ? 'location' : undefined}
+      onClick={(e) => {
+        e.preventDefault();
+        onSelect(sectionId);
+      }}
+      className={`${base} transition-all duration-200 ${isActive ? ACTIVE_LINK : inactive}`}
+    >
+      {name}
+    </a>
+  );
+};
+
+NavLink.propTypes = {
+  name: PropTypes.string.isRequired,
+  layout: PropTypes.oneOf(['desktop', 'mobile']).isRequired,
+  isActive: PropTypes.bool.isRequired,
+  onSelect: PropTypes.func.isRequired,
+};
+
 /*
  * Site navigation, rendered as one of two layouts:
  * - desktop: centered pill bar that docks to the top once the page scrolls
@@ -20,24 +62,18 @@ const Navbar = ({
 
   // Close the mobile menu on any click outside it, or on scroll
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isMobileMenuOpen && !event.target.closest('.mobile-nav')) {
-        setIsMobileMenuOpen(false);
-      }
-    };
+    if (!isMobileMenuOpen) return;
 
-    const handleScroll = () => {
-      if (isMobileMenuOpen) {
-        setIsMobileMenuOpen(false);
-      }
+    const close = () => setIsMobileMenuOpen(false);
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('.mobile-nav')) close();
     };
 
     document.addEventListener('click', handleClickOutside);
-    window.addEventListener('scroll', handleScroll);
-
+    window.addEventListener('scroll', close);
     return () => {
       document.removeEventListener('click', handleClickOutside);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', close);
     };
   }, [isMobileMenuOpen]);
 
@@ -60,28 +96,15 @@ const Navbar = ({
               : 'rounded-lg border border-white/20'
           }`}
       >
-        {sections.map((item) => {
-          const sectionId = item.toLowerCase();
-          const isActive = activeSection === sectionId;
-
-          return (
-            <a
-              key={item}
-              href={`#${sectionId}`}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(sectionId);
-              }}
-              className={`text-base px-3 py-1 rounded-md transition-all duration-200 ${
-                isActive
-                  ? 'text-black bg-white shadow-[0_0_8px_rgba(255,255,255,0.3)]'
-                  : 'text-white/70 hover:text-white hover:bg-white/10 hover:shadow-lg'
-              }`}
-            >
-              {item}
-            </a>
-          );
-        })}
+        {sections.map((name) => (
+          <NavLink
+            key={name}
+            name={name}
+            layout="desktop"
+            isActive={activeSection === name.toLowerCase()}
+            onSelect={handleNavClick}
+          />
+        ))}
       </nav>
     );
   }
@@ -146,28 +169,15 @@ const Navbar = ({
       >
         <div className="p-6 pt-20">
           <div className="space-y-4">
-            {sections.map((item) => {
-              const sectionId = item.toLowerCase();
-              const isActive = activeSection === sectionId;
-
-              return (
-                <a
-                  key={item}
-                  href={`#${sectionId}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(sectionId);
-                  }}
-                  className={`touch-button block w-full text-left px-4 py-3 rounded-lg transition-all duration-200 ${
-                    isActive
-                      ? 'text-black bg-white shadow-[0_0_8px_rgba(255,255,255,0.3)]'
-                      : 'text-white/70 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {item}
-                </a>
-              );
-            })}
+            {sections.map((name) => (
+              <NavLink
+                key={name}
+                name={name}
+                layout="mobile"
+                isActive={activeSection === name.toLowerCase()}
+                onSelect={handleNavClick}
+              />
+            ))}
           </div>
         </div>
       </div>
