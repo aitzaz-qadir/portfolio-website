@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import sections from '../../data/sections.json';
 import { useIsMobile } from '../../hooks/useIsMobile';
@@ -58,6 +58,9 @@ const Navbar = ({
   setActiveSection,
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // Panel's top edge in px: just under the bar, measured on open (the menu closes on scroll, so the bar can't move while open)
+  const [panelTop, setPanelTop] = useState(0);
+  const barRef = useRef(null);
   const isMobile = useIsMobile();
 
   // Close the mobile menu on any click outside it, or on scroll
@@ -76,6 +79,13 @@ const Navbar = ({
       window.removeEventListener('scroll', close);
     };
   }, [isMobileMenuOpen]);
+
+  const toggleMenu = () => {
+    if (!isMobileMenuOpen) {
+      setPanelTop(barRef.current.getBoundingClientRect().bottom + 8);
+    }
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   const handleNavClick = (sectionId) => {
     scrollToSection(sectionId);
@@ -113,6 +123,7 @@ const Navbar = ({
   return (
     <>
       <nav
+        ref={barRef}
         className={`mobile-nav fixed z-50 transition-all duration-200 ease-in-out bg-neutral-900/95 backdrop-blur-xl shadow-md
           ${isScrolled ? 'top-0' : 'top-4'} 
         left-4 right-4 px-4 py-3 flex items-center justify-between font-bold
@@ -126,7 +137,7 @@ const Navbar = ({
 
         {/* Hamburger; its three bars morph into an X while open */}
         <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onClick={toggleMenu}
           className="touch-friendly text-white/70 hover:text-white transition-colors duration-200 p-2"
           aria-label="Toggle mobile menu"
           aria-expanded={isMobileMenuOpen}
@@ -159,15 +170,16 @@ const Navbar = ({
         />
       )}
 
-      {/* Panel stays mounted so it can slide; inert keeps it out of tab order while closed */}
+      {/* Panel floats under the bar; stays mounted so it can slide, inert keeps it out of tab order while closed */}
       <div
         id="mobile-menu"
         inert={!isMobileMenuOpen}
-        className={`mobile-nav fixed z-40 top-0 right-0 h-full w-64 bg-neutral-900/95 backdrop-blur-xl border-l border-white/20 shadow-2xl transition-transform duration-300 ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        style={{ top: panelTop }}
+        className={`mobile-nav fixed z-40 right-4 bottom-4 w-64 bg-neutral-900/95 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl transition-transform duration-300 ${
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-[calc(100%_+_1rem)]'
         }`}
       >
-        <div className="p-6 pt-20">
+        <div className="p-4">
           <div className="space-y-4">
             {sections.map((name) => (
               <NavLink
