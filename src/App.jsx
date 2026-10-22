@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react';
-import './index.css';
 import Navbar from './components/layout/Navbar';
 import HeroSection from './components/hero/HeroSection';
 import ExperienceSection from './components/experience/ExperienceSection';
 import ProjectsSection from './components/projects/ProjectsSection';
 import AboutSection from './components/about/AboutSection';
 import ContactSection from './components/contact/ContactSection';
-import StarfieldBackground from './components/hero/StarfieldBackground';
+import StarfieldBackground from './components/layout/StarfieldBackground';
 import sections from './data/sections.json';
 import { MOBILE_BREAKPOINT } from './hooks/useIsMobile';
 
 // Section ids in page order (each matches a section element id)
 const SECTION_IDS = sections.map((name) => name.toLowerCase());
 
-// Smooth scroll function with mobile navbar offset
+// Smooth-scroll to a section; on mobile, stop short so the fixed top bar doesn't cover it
 const scrollToSection = (sectionId) => {
   const section = document.getElementById(sectionId);
   if (section) {
     const isMobile = window.innerWidth < MOBILE_BREAKPOINT;
-    const navbarHeight = isMobile ? 60 : 0; // Reduced mobile navbar offset
+    const navbarHeight = isMobile ? 60 : 0;
 
     const elementPosition = section.offsetTop;
     const offsetPosition = elementPosition - navbarHeight;
@@ -34,12 +33,15 @@ const scrollToSection = (sectionId) => {
 
 const scrollToExperience = () => scrollToSection('experience');
 
-// Main application component
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('intro');
 
-  // Track nav docking and active section, updating at most once per frame
+  /*
+   * Scroll tracking for the navbar, throttled to one update per animation frame.
+   * isScrolled: past 10% of the viewport height (nav docks to the top).
+   * activeSection: the section containing a point just below the top of the viewport.
+   */
   useEffect(() => {
     let frame = null;
 
@@ -75,28 +77,23 @@ function App() {
   }, []);
 
   return (
-    <div className="scroll-optimized min-h-screen bg-black relative">
-      {/* Animated Starfield Background */}
+    <div className="min-h-screen bg-black relative">
       <StarfieldBackground />
-      {/* Main Content Wrapper */}
+      {/* Content stacks above the fixed starfield */}
       <div className="relative z-10">
-        {/* Navbar */}
         <Navbar
           isScrolled={isScrolled}
           activeSection={activeSection}
           scrollToSection={scrollToSection}
           setActiveSection={setActiveSection}
         />
-        {/* Hero Section */}
-        <HeroSection scrollToExperience={scrollToExperience} />
-        {/* Experience Section */}
-        <ExperienceSection />
-        {/* Projects Section */}
-        <ProjectsSection />
-        {/* About Section */}
-        <AboutSection />
-        {/* Contact Section */}
-        <ContactSection />
+        <main>
+          <HeroSection scrollToExperience={scrollToExperience} />
+          <ExperienceSection />
+          <ProjectsSection />
+          <AboutSection />
+          <ContactSection />
+        </main>
       </div>
     </div>
   );

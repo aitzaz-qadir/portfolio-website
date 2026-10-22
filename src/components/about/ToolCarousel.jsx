@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
-// ToolCarousel component to display a scrolling list of tools
-const ToolCarousel = ({ tools, direction = 'left', duration = '40s' }) => {
+// Endless scrolling row of tools; the list is rendered twice so the -50% loop is seamless
+const ToolCarousel = ({ tools, direction = 'left', duration = '20s' }) => {
   const animationClass =
     direction === 'left' ? 'animate-moveLeft' : 'animate-moveRight';
 
@@ -29,8 +29,7 @@ const ToolCarousel = ({ tools, direction = 'left', duration = '40s' }) => {
 ToolCarousel.propTypes = {
   tools: PropTypes.arrayOf(
     PropTypes.shape({
-      icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-        .isRequired,
+      icon: PropTypes.element,
       name: PropTypes.string.isRequired,
     })
   ).isRequired,

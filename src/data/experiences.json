@@ -18,8 +18,7 @@
       "Git",
       "JIRA",
       "Agile Methodologies"
-    ],
-    "animationDelay": "0.1s"
+    ]
   },
   {
     "id": 2,
@@ -39,8 +38,7 @@
       "Event Planning",
       "Communication",
       "Teamwork"
-    ],
-    "animationDelay": "0.2s"
+    ]
   },
   {
     "id": 3,
@@ -59,7 +57,6 @@
       "Team Collaboration",
       "Time Management",
       "Problem Solving"
-    ],
-    "animationDelay": "0.3s"
+    ]
   }
 ]

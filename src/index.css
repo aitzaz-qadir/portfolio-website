@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 
 /* Import modular CSS files */
-@import './styles/base.css';
 @import './styles/animations.css';
 @import './styles/carousel.css';
 @import './styles/responsive.css';

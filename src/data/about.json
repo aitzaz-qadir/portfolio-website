@@ -3,7 +3,7 @@
     "id": "location",
     "type": "location",
     "title": "Current Location",
-    "description": "Based in Toronto, Ontario 🇨🇦",
+    "description": "Based in Toronto, Ontario",
     "content": "Toronto, ON",
     "mapImage": "/assets/toronto-map.png",
     "profileImage": "/assets/profile-pic.jpg"
@@ -45,8 +45,8 @@
     "image": "/assets/portfolio-picture.png"
   },
   {
-    "id": "education",
-    "type": "education",
+    "id": "resume",
+    "type": "resume",
     "title": "Education & Resume",
     "description": "Learn about my educational background and download my resume.",
     "buttonText": "Download Resume",
@@ -55,36 +55,37 @@
   {
     "id": "toolbox",
     "type": "toolbox",
+    "wide": true,
     "title": "My Toolbox",
     "description": "Explore the technologies and tools I use to craft exceptional digital experiences.",
     "tools": [
-      { "name": "HTML5", "icon": "🌐" },
-      { "name": "CSS3", "icon": "🎨" },
-      { "name": "JavaScript", "icon": "⚡" },
-      { "name": "Java", "icon": "☕" },
-      { "name": "C", "icon": "🔧" },
-      { "name": "C++", "icon": "⚙️" },
-      { "name": "C#", "icon": "💎" },
-      { "name": "Python", "icon": "🐍" },
-      { "name": "React", "icon": "⚛️" },
-      { "name": "R", "icon": "📊" },
-      { "name": "Kotlin", "icon": "🎯" },
-      { "name": "Tailwind", "icon": "💨" }
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Java",
+      "C",
+      "C++",
+      "C#",
+      "Python",
+      "React",
+      "R",
+      "Kotlin",
+      "Tailwind"
     ],
     "toolsSecond": [
-      { "name": "Git", "icon": "📝" },
-      { "name": "GitHub", "icon": "🐙" },
-      { "name": "SQL", "icon": "🗄️" },
-      { "name": "Unity", "icon": "🎮" },
-      { "name": "IntelliJ", "icon": "💡" },
-      { "name": "Visual Studio", "icon": "🔵" },
-      { "name": "JIRA", "icon": "📋" },
-      { "name": "Node.js", "icon": "🟢" },
-      { "name": "Vite", "icon": "⚡" },
-      { "name": "Linux", "icon": "�" },
-      { "name": "Docker", "icon": "�" },
-      { "name": "Android Studio", "icon": "🤖" },
-      { "name": "Figma", "icon": "🎨" }
+      "Git",
+      "GitHub",
+      "SQL",
+      "Unity",
+      "IntelliJ",
+      "Visual Studio",
+      "JIRA",
+      "Node.js",
+      "Vite",
+      "Linux",
+      "Docker",
+      "Android Studio",
+      "Figma"
     ]
   }
 ]

@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import sections from '../../data/sections.json';
 import { useIsMobile } from '../../hooks/useIsMobile';
 
-// Navigation component that provides smooth scrolling between sections and visual feedback
+/*
+ * Site navigation, rendered as one of two layouts:
+ * - desktop: centered pill bar that docks to the top once the page scrolls
+ * - mobile: top bar with a hamburger that opens a slide-out panel
+ * Links smooth-scroll to their section and update the URL hash and active highlight.
+ */
 const Navbar = ({
   isScrolled,
   activeSection,
@@ -13,7 +18,7 @@ const Navbar = ({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
 
-  // Close mobile menu when clicking outside or on scroll
+  // Close the mobile menu on any click outside it, or on scroll
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (isMobileMenuOpen && !event.target.closest('.mobile-nav')) {
@@ -40,10 +45,9 @@ const Navbar = ({
     scrollToSection(sectionId);
     setActiveSection(sectionId);
     window.history.pushState(null, null, `#${sectionId}`);
-    setIsMobileMenuOpen(false); // Close mobile menu after navigation
+    setIsMobileMenuOpen(false);
   };
 
-  // Desktop Navigation
   if (!isMobile) {
     return (
       <nav
@@ -68,7 +72,7 @@ const Navbar = ({
                 e.preventDefault();
                 handleNavClick(sectionId);
               }}
-              className={`text-base px-3 py-1 rounded-md transition-all duration-200 focus-visible:focus-visible ${
+              className={`text-base px-3 py-1 rounded-md transition-all duration-200 ${
                 isActive
                   ? 'text-black bg-white shadow-[0_0_8px_rgba(255,255,255,0.3)]'
                   : 'text-white/70 hover:text-white hover:bg-white/10 hover:shadow-lg'
@@ -82,10 +86,9 @@ const Navbar = ({
     );
   }
 
-  // Mobile Navigation
+  // Mobile layers: top bar (z-50) > slide-out panel (z-40) > dim overlay (z-30)
   return (
     <>
-      {/* Mobile Navbar */}
       <nav
         className={`mobile-nav fixed z-50 transition-all duration-200 ease-in-out bg-neutral-900/95 backdrop-blur-xl shadow-md
           ${isScrolled ? 'top-0' : 'top-4'} 
@@ -96,15 +99,15 @@ const Navbar = ({
               : 'rounded-lg border border-white/20'
           }`}
       >
-        {/* Logo/Brand */}
         <div className="text-white font-bold text-lg">Portfolio</div>
 
-        {/* Hamburger Menu Button */}
+        {/* Hamburger; its three bars morph into an X while open */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="touch-friendly text-white/70 hover:text-white focus-visible:focus-visible transition-colors duration-200 p-2"
+          className="touch-friendly text-white/70 hover:text-white transition-colors duration-200 p-2"
           aria-label="Toggle mobile menu"
           aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           <div className="w-6 h-6 flex flex-col justify-center items-center">
             <span
@@ -126,17 +129,18 @@ const Navbar = ({
         </button>
       </nav>
 
-      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
+          className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
 
-      {/* Mobile Menu */}
+      {/* Panel stays mounted so it can slide; inert keeps it out of tab order while closed */}
       <div
-        className={`mobile-nav fixed z-50 top-0 right-0 h-full w-64 bg-neutral-900/95 backdrop-blur-xl border-l border-white/20 shadow-2xl transition-transform duration-300 ${
+        id="mobile-menu"
+        inert={!isMobileMenuOpen}
+        className={`mobile-nav fixed z-40 top-0 right-0 h-full w-64 bg-neutral-900/95 backdrop-blur-xl border-l border-white/20 shadow-2xl transition-transform duration-300 ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -154,7 +158,7 @@ const Navbar = ({
                     e.preventDefault();
                     handleNavClick(sectionId);
                   }}
-                  className={`touch-button block w-full text-left px-4 py-3 rounded-lg transition-all duration-200 focus-visible:focus-visible ${
+                  className={`touch-button block w-full text-left px-4 py-3 rounded-lg transition-all duration-200 ${
                     isActive
                       ? 'text-black bg-white shadow-[0_0_8px_rgba(255,255,255,0.3)]'
                       : 'text-white/70 hover:text-white hover:bg-white/10'

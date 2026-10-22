@@ -5,7 +5,7 @@ import {
   IconCode,
 } from '@tabler/icons-react';
 
-// Individual project card component
+// One project: image with status badge, description, tech tags and links
 const ProjectCard = ({ project }) => {
   const {
     title,
@@ -20,10 +20,9 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div className="group bg-neutral-900/50 backdrop-blur-lg border border-white/10 rounded-xl p-4 sm:p-6 hover:border-white/20 hover:bg-neutral-900/70 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/10 relative overflow-hidden h-full flex flex-col min-h-[500px]">
-      {/* Under Construction Overlay for planned projects */}
+      {/* Planned projects get a striped "under construction" overlay */}
       {status === 'planned' && (
         <div className="absolute inset-0 z-10 rounded-xl overflow-hidden">
-          {/* Full card diagonal stripes overlay */}
           <div
             className="absolute inset-0 opacity-20"
             style={{
@@ -31,7 +30,6 @@ const ProjectCard = ({ project }) => {
                 'repeating-linear-gradient(45deg, #facc15 0px, #facc15 20px, #000000 20px, #000000 40px)',
             }}
           ></div>
-          {/* Center construction text */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="bg-yellow-400 text-black px-4 py-2 rounded-lg transform -rotate-12 shadow-lg border-2 border-black">
               <span className="font-bold text-sm tracking-wide">
@@ -41,13 +39,14 @@ const ProjectCard = ({ project }) => {
           </div>
         </div>
       )}
-      {/* Project Image */}
       <div className="relative mb-4 overflow-hidden rounded-lg">
         {imageUrl ? (
           <>
             <img
               src={imageUrl}
               alt={title}
+              loading="lazy"
+              decoding="async"
               className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
             />
             {/* Optional dim overlay for bright images */}
@@ -76,19 +75,15 @@ const ProjectCard = ({ project }) => {
         )}
       </div>
 
-      {/* Content Container */}
       <div className="flex flex-col flex-grow">
-        {/* Project Title */}
         <h3 className="text-xl sm:text-2xl font-bold mb-3 text-white group-hover:text-green-400 transition-colors duration-300">
           {title}
         </h3>
 
-        {/* Project Description */}
         <p className="text-white/70 mb-4 text-sm sm:text-base leading-relaxed flex-grow">
           {description}
         </p>
 
-        {/* Technologies */}
         {technologies && technologies.length > 0 && (
           <div className="mb-4">
             <div className="flex flex-wrap gap-2">
@@ -104,14 +99,14 @@ const ProjectCard = ({ project }) => {
           </div>
         )}
 
-        {/* Action Buttons - Always at bottom */}
+        {/* Links pinned to the bottom so buttons line up across cards */}
         <div className="flex gap-3 mt-auto">
           {githubUrl && (
             <a
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-3 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-200 hover:scale-105 focus-visible:focus-visible"
+              className="flex items-center gap-2 px-3 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all duration-200 hover:scale-105"
             >
               <IconBrandGithub className="w-4 h-4" />
               <span className="text-sm font-medium">Code</span>
@@ -122,7 +117,7 @@ const ProjectCard = ({ project }) => {
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-3 py-2 bg-green-500/20 hover:bg-green-500/30 text-green-400 border border-green-500/30 rounded-lg transition-all duration-200 hover:scale-105 focus-visible:focus-visible"
+              className="flex items-center gap-2 px-3 py-2 bg-green-500/20 hover:bg-green-500/30 text-green-400 border border-green-500/30 rounded-lg transition-all duration-200 hover:scale-105"
             >
               <IconExternalLink className="w-4 h-4" />
               <span className="text-sm font-medium">Live Demo</span>
