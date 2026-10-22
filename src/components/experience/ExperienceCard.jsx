@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import PulseDot from '../ui/PulseDot';
 
 // One job: logo, title, dates, responsibilities and skills; slides in once visible
 const ExperienceCard = ({ experience, isVisible, delay }) => {
@@ -30,7 +31,15 @@ const ExperienceCard = ({ experience, isVisible, delay }) => {
             </div>
           </div>
 
-          <span className="text-xs sm:text-sm text-white/60 bg-white/10 px-2 sm:px-3 py-1 rounded-full self-start sm:self-center flex-shrink-0">
+          {/* Current role gets a green pill with a pulsing dot */}
+          <span
+            className={`flex items-center gap-1.5 text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full self-start sm:self-center flex-shrink-0 ${
+              experience.current
+                ? 'bg-green-500/20 text-green-400 border border-green-500/30'
+                : 'bg-white/10 text-white/60'
+            }`}
+          >
+            {experience.current && <PulseDot />}
             {experience.period}
           </span>
         </div>
@@ -68,6 +77,7 @@ ExperienceCard.propTypes = {
     logo: PropTypes.string.isRequired,
     responsibilities: PropTypes.arrayOf(PropTypes.string).isRequired,
     skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+    current: PropTypes.bool,
   }).isRequired,
   isVisible: PropTypes.bool.isRequired,
   delay: PropTypes.string,

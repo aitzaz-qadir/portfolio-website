@@ -4,6 +4,7 @@
     "title": "Intern Support Consultant",
     "company": "Nova Scotia Health (OPOR)",
     "period": "Feb 2026 — Present",
+    "current": true,
     "logo": "/assets/logos/logo-4.png",
     "responsibilities": [
       "Designed and led development of Charts, Please! and Master Aldric's Labyrinth, gamified cutover training for nurses and pharmacists (React, TypeScript, Firebase), reaching nearly 350 clinical staff.",

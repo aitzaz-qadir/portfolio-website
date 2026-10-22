@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { IconArrowDown } from '@tabler/icons-react';
+import PulseDot from '../ui/PulseDot';
 
 // Landing screen: photo, availability status, intro text and a scroll-down button
 const HeroSection = ({ scrollToExperience }) => {
@@ -18,10 +19,7 @@ const HeroSection = ({ scrollToExperience }) => {
 
       {/* Availability pill with a pulsing green dot */}
       <div className="flex items-center justify-center w-auto max-w-xs sm:max-w-sm md:max-w-75 h-10 sm:h-12 bg-neutral-900/70 backdrop-blur-md rounded-full border border-white/20 text-white shadow-lg space-x-2 sm:space-x-3 px-3 sm:px-4 py-2 mb-4 sm:mb-5 md:mb-6">
-        <div className="relative w-2.5 h-2.5 sm:w-3 sm:h-3">
-          <span className="absolute inline-flex w-full h-full rounded-full bg-green-500 opacity-75 animate-ping"></span>
-          <span className="absolute inline-flex w-full h-full rounded-full bg-green-500"></span>
-        </div>
+        <PulseDot className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
         <span className="text-sm sm:text-base font-semibold whitespace-nowrap">
           Seeking a Full-Time Role
         </span>
