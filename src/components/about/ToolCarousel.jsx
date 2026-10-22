@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 // ToolCarousel component to display a scrolling list of tools

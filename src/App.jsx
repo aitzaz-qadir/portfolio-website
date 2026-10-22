@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import './index.css';
 import Navbar from './components/layout/Navbar';
 import HeroSection from './components/hero/HeroSection';

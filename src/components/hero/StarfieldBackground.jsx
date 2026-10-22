@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import { Fragment, useEffect, useState, useMemo } from 'react';
 
 const StarfieldBackground = () => {
   const [isClient, setIsClient] = useState(false);
@@ -102,7 +102,7 @@ const StarfieldBackground = () => {
         const isComet = cometState?.active;
 
         return (
-          <React.Fragment key={star.id}>
+          <Fragment key={star.id}>
             {/* Regular Star */}
             <div
               className={`star ${isComet ? 'comet-hidden' : ''}`}
@@ -130,7 +130,7 @@ const StarfieldBackground = () => {
                 '--comet-angle': `${star.cometDirection}deg`,
               }}
             />
-          </React.Fragment>
+          </Fragment>
         );
       })}
     </div>

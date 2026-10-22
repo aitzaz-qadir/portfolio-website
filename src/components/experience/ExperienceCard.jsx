@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 // Reusable component that renders a single experience item with timeline dot and content card

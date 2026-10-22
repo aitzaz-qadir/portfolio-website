@@ -1,4 +1,3 @@
-import React from 'react';
 import ContactCard from './ContactCard';
 import contactsData from '../../data/contacts.json';
 

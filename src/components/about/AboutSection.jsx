@@ -1,4 +1,3 @@
-import React from 'react';
 import AboutCard from './AboutCard';
 import aboutData from '../../data/about.json';
 import { IconUser } from '@tabler/icons-react';

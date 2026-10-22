@@ -1,4 +1,3 @@
-import React from 'react';
 import ProjectCard from './ProjectCard';
 import projectsData from '../../data/projects.json';
 import { IconCode } from '@tabler/icons-react';
