@@ -27,6 +27,10 @@ import {
   IconFileCode,
   IconChartBar,
   IconDiamond,
+  IconBrandTypescript,
+  IconLeaf,
+  IconBrandFirebase,
+  IconBrandAws,
 } from '@tabler/icons-react';
 
 // Icon for each tool name used in about.json
@@ -34,7 +38,9 @@ const iconMap = {
   HTML5: <IconBrandHtml5 size={28} />,
   CSS3: <IconBrandCss3 size={28} />,
   JavaScript: <IconBrandJavascript size={28} />,
+  TypeScript: <IconBrandTypescript size={28} />,
   Java: <IconFileCode size={28} />,
+  'Spring Boot': <IconLeaf size={28} />,
   C: <IconTerminal size={28} />,
   'C++': <IconBrandCpp size={28} />,
   'C#': <IconDiamond size={28} />,
@@ -46,6 +52,9 @@ const iconMap = {
   Git: <IconBrandGit size={28} />,
   GitHub: <IconBrandGithub size={28} />,
   SQL: <IconDatabase size={28} />,
+  PostgreSQL: <IconDatabase size={28} />,
+  Firebase: <IconBrandFirebase size={28} />,
+  AWS: <IconBrandAws size={28} />,
   Unity: <IconBrandUnity size={28} />,
   IntelliJ: <IconBulb size={28} />,
   'Visual Studio': <IconBrandVisualStudio size={28} />,
@@ -83,12 +92,12 @@ const ToolboxCard = ({ item }) => (
       <ToolCarousel
         tools={toCarouselTools(item.tools)}
         direction="left"
-        duration="19s"
+        duration="22s"
       />
       <ToolCarousel
         tools={toCarouselTools(item.toolsSecond)}
         direction="right"
-        duration="16.5s"
+        duration="20.5s"
       />
     </div>
   </div>

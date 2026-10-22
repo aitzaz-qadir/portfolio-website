@@ -39,8 +39,8 @@ const HeroSection = ({ scrollToExperience }) => {
       </h1>
 
       <p className="text-base sm:text-lg text-center max-w-sm sm:max-w-lg md:max-w-xl mb-4 sm:mb-6 font-semibold px-2">
-        I&apos;m a recent Computer Science graduate with hands-on experience in
-        web development, backend systems, and data-driven projects.
+        I&apos;m a Computer Science graduate (Dalhousie, 2024) building clinical
+        training tools and full-stack apps. Currently at Nova Scotia Health.
       </p>
 
       <button
