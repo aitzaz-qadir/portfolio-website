@@ -1,5 +1,9 @@
 import { Fragment, useEffect, useState, useMemo, useRef } from 'react';
 
+// Mirror the max-width media queries in animations.css
+const TABLET_MAX = 768;
+const PHONE_MAX = 480;
+
 const StarfieldBackground = () => {
   const [cometStates, setCometStates] = useState({});
   const timersRef = useRef(new Set());
@@ -24,6 +28,9 @@ const StarfieldBackground = () => {
         cometChance: Math.random() * 0.1 + 0.2, // 20-30% chance to become comet
         nextCometTime: Math.random() * 10000 + 5000, // 5-15 seconds until first comet (staggered)
         cometDirection: Math.random() * 360, // Random direction in degrees
+        // Thinned out on smaller screens (see .star-hide-* in animations.css)
+        hideOnTablet: i % 3 === 0,
+        hideOnMobile: i % 2 === 0,
       });
     }
 
@@ -46,15 +53,11 @@ const StarfieldBackground = () => {
     stars.forEach((star) => {
       schedule(() => {
         const triggerComet = () => {
-          // Skip comet for stars that are hidden on mobile/tablet
-          const isHiddenOnTablet = (star.id + 1) % 3 === 1; // 3n + 1 pattern
-          const isHiddenOnMobile = star.id % 2 === 0; // 2n pattern
-
-          // Check screen size and skip if star would be hidden
+          // Skip comet for stars hidden at this screen size
           const screenWidth = window.innerWidth;
           if (
-            (screenWidth <= 768 && isHiddenOnTablet) ||
-            (screenWidth <= 480 && isHiddenOnMobile)
+            (screenWidth <= TABLET_MAX && star.hideOnTablet) ||
+            (screenWidth <= PHONE_MAX && star.hideOnMobile)
           ) {
             // Schedule next potential comet without triggering
             const nextInterval = Math.random() * 30000 + 30000; // 30-60 seconds
@@ -106,7 +109,7 @@ const StarfieldBackground = () => {
           <Fragment key={star.id}>
             {/* Regular Star */}
             <div
-              className={`star ${isComet ? 'comet-hidden' : ''}`}
+              className={`star ${star.hideOnTablet ? 'star-hide-tablet' : ''} ${star.hideOnMobile ? 'star-hide-mobile' : ''} ${isComet ? 'comet-hidden' : ''}`}
               style={{
                 left: `${star.x}%`,
                 top: `${star.y}%`,

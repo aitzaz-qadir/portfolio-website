@@ -235,7 +235,7 @@
 /* Responsive adjustments for mobile devices */
 @media (max-width: 768px) {
   /* Hide every 3rd star on tablets - use opacity to maintain layout */
-  .star:nth-child(3n + 1) {
+  .star-hide-tablet {
     opacity: 0 !important;
     animation: none !important;
   }
@@ -260,7 +260,7 @@
 
 @media (max-width: 480px) {
   /* Hide even more stars on mobile phones - use opacity to maintain layout */
-  .star:nth-child(2n) {
+  .star-hide-mobile {
     opacity: 0 !important;
     animation: none !important;
   }

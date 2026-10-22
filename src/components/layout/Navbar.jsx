@@ -1,31 +1,17 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
-// Sections in nav order; lowercased, each matches a section element id
-const NAV_ITEMS = ['Intro', 'Experience', 'Projects', 'About', 'Contact'];
+import sections from '../../data/sections.json';
+import { useIsMobile } from '../../hooks/useIsMobile';
 
 // Navigation component that provides smooth scrolling between sections and visual feedback
 const Navbar = ({
   isScrolled,
   activeSection,
   scrollToSection,
-  scrollToExperience,
   setActiveSection,
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Check if device is mobile/tablet
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkIfMobile();
-    window.addEventListener('resize', checkIfMobile);
-
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
+  const isMobile = useIsMobile();
 
   // Close mobile menu when clicking outside or on scroll
   useEffect(() => {
@@ -51,12 +37,7 @@ const Navbar = ({
   }, [isMobileMenuOpen]);
 
   const handleNavClick = (sectionId) => {
-    if (sectionId === 'experience') {
-      scrollToExperience();
-    } else {
-      scrollToSection(sectionId);
-    }
-
+    scrollToSection(sectionId);
     setActiveSection(sectionId);
     window.history.pushState(null, null, `#${sectionId}`);
     setIsMobileMenuOpen(false); // Close mobile menu after navigation
@@ -75,7 +56,7 @@ const Navbar = ({
               : 'rounded-lg border border-white/20'
           }`}
       >
-        {NAV_ITEMS.map((item) => {
+        {sections.map((item) => {
           const sectionId = item.toLowerCase();
           const isActive = activeSection === sectionId;
 
@@ -161,7 +142,7 @@ const Navbar = ({
       >
         <div className="p-6 pt-20">
           <div className="space-y-4">
-            {NAV_ITEMS.map((item) => {
+            {sections.map((item) => {
               const sectionId = item.toLowerCase();
               const isActive = activeSection === sectionId;
 
@@ -194,7 +175,6 @@ Navbar.propTypes = {
   isScrolled: PropTypes.bool.isRequired,
   activeSection: PropTypes.string.isRequired,
   scrollToSection: PropTypes.func.isRequired,
-  scrollToExperience: PropTypes.func.isRequired,
   setActiveSection: PropTypes.func.isRequired,
 };
 
