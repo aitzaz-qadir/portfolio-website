@@ -29,11 +29,7 @@ const HeroSection = ({ scrollToExperience }) => {
 
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mt-2 sm:mt-4 md:mt-6 mb-3 sm:mb-4 drop-shadow-lg text-center px-2">
         Hi, I&apos;m Aitzaz!
-        <span
-          role="img"
-          aria-label="waving hand"
-          className="animate-pulse ml-2"
-        >
+        <span role="img" aria-label="waving hand" className="animate-wave ml-2">
           👋
         </span>
       </h1>
